@@ -1,0 +1,1571 @@
+<?xml version="1.0"?>
+
+<!-- major modifications ph-cor 16-2-2016
+A380 rotor-whine
+t/d squeels and bonks
+runway rumble and bump
+nosewheel bay noises in cockpit -->
+
+
+<PropertyList>
+
+  <fx>
+    
+    <!-- 3 Touchdown squeals only heard outside the cockpit -->
+    
+    <squeal1>
+      <name>squeal nosegear</name>
+      <path>Aircraft/A380-omega/Sounds/touchdown_mono.wav</path>
+      <condition>
+	<and>
+	  <property>/gear/gear[0]/wow</property>
+          <greater-than>
+            <property>/sim/current-view/view-number</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>/sim/current-view/view-number</property>
+            <value>8</value>
+          </less-than>
+          <not>
+            <property>sim/crashed</property>
+          </not>
+	</and>
+      </condition>
+      <volume>
+	<property>/velocities/airspeed-kt</property>
+	<factor>0.01</factor>
+      </volume>
+      <!--volume>
+      <property>/velocities/speed-down-fps</property>
+      <factor>0.05</factor>
+    </volume>
+    < pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0025</factor>
+    <offset>1.2</offset>
+    </pitch -->
+  </squeal1>
+  
+  <squeal2>
+    <name>squeal left maingear</name>
+    <path>Aircraft/A380-omega/Sounds/touchdown_mono.wav</path>
+    <condition>
+      <and>
+	<property>/gear/gear[1]/wow</property>
+        <greater-than>
+          <property>/sim/current-view/view-number</property>
+          <value>0</value>
+        </greater-than>
+        <less-than>
+          <property>/sim/current-view/view-number</property>
+          <value>8</value>
+        </less-than>
+        <not>
+          <property>sim/crashed</property>
+        </not>
+      </and>
+    </condition>
+    <volume>
+      <property>/velocities/airspeed-kt</property>
+      <factor>0.01</factor>
+    </volume>
+    <!--volume>
+    <property>/velocities/speed-down-fps</property>
+    <factor>0.05</factor>
+  </volume>
+  < pitch>
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.0025</factor>
+  <offset>1.2</offset>
+  </pitch -->
+</squeal2>
+
+<squeal3>
+  <name>squeal right maingear</name>
+  <path>Aircraft/A380-omega/Sounds/touchdown_mono.wav</path>
+  <condition>
+    <and>
+      <property>/gear/gear[2]/wow</property>
+      <greater-than>
+        <property>/sim/current-view/view-number</property>
+        <value>0</value>
+      </greater-than>
+      <less-than>
+        <property>/sim/current-view/view-number</property>
+        <value>8</value>
+      </less-than>
+      <not>
+        <property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+  </volume>
+  <!--volume>
+  <property>/velocities/speed-down-fps</property>
+  <factor>0.05</factor>
+</volume>
+< pitch>
+<property>/velocities/airspeed-kt</property>
+<factor>0.0025</factor>
+<offset>1.2</offset>
+</pitch -->
+</squeal3>
+
+<!-- 4 Engines roaring jet soundlevels heard outside the cockpit -->
+
+<engine1>
+  <name>Engine0 outside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[0]/n1</property>
+    <type>ln</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>-1</x>
+    <y>-20.0</y>
+    <z>-3</z>
+  </position>
+</engine1>
+
+<engine2>
+  <name>Engine1 outside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[1]/n1</property>
+    <type>ln</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>10</x>
+    <y>-10</y>
+    <z>-4</z>
+  </position>
+</engine2>
+
+<engine3>
+  <name>Engine2 outside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[2]/n1</property>
+    <type>ln</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>10</x>
+    <y>10</y>
+    <z>-4</z>
+  </position>
+</engine3>
+
+<engine4>
+  <name>Engine3 outside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[3]/n1</property>
+    <type>ln</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>-1</x>
+    <y>20.0</y>
+    <z>-3</z>
+  </position>
+</engine4>
+
+<!-- 4 Engines turbine soundlevels, heard outside the cockpit -->
+
+<engine1>
+  <name>Engine0 n1</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.02</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[0]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>-1</x>
+    <y>-20.0</y>
+    <z>-3</z>
+  </position>
+</engine1>
+
+<engine2>
+  <name>Engine1 n1</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[1]/n1</property>
+    <factor>0.02</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[1]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>10</x>
+    <y>-10</y>
+    <z>-4</z>
+  </position>
+</engine2>
+
+<engine3>
+  <name>Engine2 n1</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[2]/n1</property>
+    <factor>0.02</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[2]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>10</x>
+    <y>10</y>
+    <z>-4</z>
+  </position>
+</engine3>
+
+<engine4>
+  <name>Engine3 n1</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[3]/n1</property>
+    <factor>0.02</factor>
+    <offset>0.01</offset>
+    <max>0.3</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[3]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>-1</x>
+    <y>20.0</y>
+    <z>-3</z>
+  </position>
+</engine4>
+
+
+<!--4 Engines startup low pitched noise sounds heard  except from the tower -->
+
+<engine1>
+  <name>Engine0 startup</name>
+  <path>Aircraft/A380-omega/Sounds/trent_starter02_mono.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+      <not-equals>
+	<property>sim/current-view/view-number</property>
+	<value>3</value>
+      </not-equals>
+      <not>
+	<equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	</equals>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>controls/engines/engine[0]/starter-sound</property>
+  </volume>
+  <pitch>
+    <property>engines/engine[0]/n1</property>
+    <factor>0.1</factor>
+    <offset>-0.5</offset>
+    <min>-10.0</min>
+    <max>1.5</max>
+  </pitch>
+  <!-- pitch>
+  <property>/engines/engine[0]/n2</property>
+  <factor>0.02</factor>
+  <min>0.0</min>
+  <max>3.0</max>
+  </pitch -->
+  <position>
+    <x>-1</x>
+    <y>-20.0</y>
+    <z>-3</z>
+  </position>
+</engine1>
+
+<engine2>
+  <name>Engine1 startup</name>
+  <path>Aircraft/A380-omega/Sounds/trent_starter02_mono.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+      <not-equals>
+	<property>sim/current-view/view-number</property>
+	<value>3</value>
+      </not-equals>
+      <not>
+	<equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	</equals>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>controls/engines/engine[1]/starter-sound</property>
+  </volume>
+  <pitch>
+    <property>engines/engine[1]/n1</property>
+    <factor>0.1</factor>
+    <offset>-0.5</offset>
+    <min>-10.0</min>
+    <max>1.5</max>
+  </pitch>
+  <position>
+    <x>10</x>
+    <y>-10</y>
+    <z>-4</z>
+  </position>
+</engine2>
+
+<engine3>
+  <name>Engine2 startup</name>
+  <path>Aircraft/A380-omega/Sounds/trent_starter02_mono.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+      <not-equals>
+	<property>sim/current-view/view-number</property>
+	<value>3</value>
+      </not-equals>
+      <not>
+	<equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	</equals>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>controls/engines/engine[2]/starter-sound</property>
+  </volume>
+  <pitch>
+    <property>engines/engine[2]/n1</property>
+    <factor>0.1</factor>
+    <offset>-0.5</offset>
+    <min>-10.0</min>
+    <max>1.5</max>
+  </pitch>
+  <position>
+    <x>10</x>
+    <y>10</y>
+    <z>-4</z>
+  </position>
+</engine3>
+
+<engine4>
+  <name>Engine3 startup</name>
+  <path>Aircraft/A380-omega/Sounds/trent_starter02_mono.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+      <not-equals>
+	<property>sim/current-view/view-number</property>
+	<value>3</value>
+      </not-equals>
+      <not>
+	<equals>
+	  <property>sim/current-view/view-number</property>
+	  <value>4</value>
+	</equals>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>controls/engines/engine[3]/starter-sound</property>
+  </volume>
+  <pitch>
+    <property>engines/engine[3]/n1</property>
+    <factor>0.1</factor>
+    <offset>-0.5</offset>
+    <min>-10.0</min>
+    <max>1.5</max>
+  </pitch>
+  <position>
+    <x>-1</x>
+    <y>20.0</y>
+    <z>-3</z>
+  </position>
+</engine4>
+
+<!-- 4 Engines roaring jet sound levels, heard in the cockpit-->
+
+<engine1>
+  <name>Engine1 inside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[0]/n1</property>
+    <type>log</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <min>0.0</min>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>-1</x>
+    <y>-20</y>
+    <z>-3</z>
+  </position>
+</engine1>
+
+<engine2>
+  <name>Engine2 inside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[1]/n1</property>
+    <type>log</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <min>0.0</min>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>10</x>
+    <y>-10</y>
+    <z>-4</z>
+  </position>
+</engine2>
+
+<engine3>
+  <name>Engine3 inside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[2]/n1</property>
+    <type>log</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <min>0.0</min>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>10</x>
+    <y>10.0</y>
+    <z>-4</z>
+  </position>
+</engine3>
+
+<engine4>
+  <name>Engine4 inside</name>
+  <path>Aircraft/A380-omega/Sounds/jet.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[3]/n1</property>
+    <type>log</type>
+    <factor>0.06</factor>
+    <offset>0.01</offset>
+    <min>0.0</min>
+    <max>0.3</max>
+  </volume>
+  <position>
+    <x>-1</x>
+    <y>20.0</y>
+    <z>-3</z>
+  </position>
+</engine4>
+
+<!-- 4 Engines turbine soundlevels, heard in the cockpit -->
+
+<engine1>
+  <name>Engine0 n1 inside</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[0]/n1</property>
+    <type>log</type>
+    <factor>0.04</factor>
+    <offset>0.03</offset>
+    <max>0.05</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[0]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>-1</x>
+    <y>-20</y>
+    <z>-3</z>
+  </position>
+</engine1>
+
+<engine2>
+  <name>Engine1 n1 inside</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[1]/n1</property>
+    <type>log</type>
+    <factor>0.04</factor>
+    <offset>0.03</offset>
+    <max>0.05</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[1]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>10</x>
+    <y>-10.0</y>
+    <z>-4</z>
+  </position>
+</engine2>
+
+<engine3>
+  <name>Engine2 n1 inside</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[2]/n1</property>
+    <type>log</type>
+    <factor>0.04</factor>
+    <offset>0.03</offset>
+    <max>0.05</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[2]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>10</x>
+    <y>10</y>
+    <z>-4</z>
+  </position>
+</engine3>
+
+<engine4>
+  <name>Engine3 n1 inside</name>
+  <path>Aircraft/A380-omega/Sounds/turbine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <property>engines/engine[3]/n1</property>
+    <type>log</type>
+    <factor>0.04</factor>
+    <offset>0.03</offset>
+    <max>0.05</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[3]/n1</property>
+    <factor>0.005</factor>
+    <offset>0.4</offset>
+    <min>0.0</min>
+    <max>2</max>
+  </pitch>
+  <position>
+    <x>-1</x>
+    <y>20.0</y>
+    <z>-3</z>
+  </position>
+</engine4>
+
+<!-- APU whine soundlevel heard outside the cockpit -->
+
+<engine5>
+  <name>APU n1</name>
+  <path>Aircraft/A380-omega/Sounds/whine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/sim/current-view/view-number</property>
+	<value>0</value>
+      </greater-than>
+      <greater-than>
+	<property>/engines/engine[4]/n1</property>
+	<value>0.1</value>
+      </greater-than>
+      <less-than>
+	<property>/sim/current-view/view-number</property>
+	<value>8</value>
+      </less-than>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <factor>0.3</factor>
+  </volume>
+  <pitch>
+    <property>/engines/engine[4]/n2</property>
+    <offset>0</offset>
+    <factor>0.01</factor>
+    <min>0.0</min>
+    <max>0.8</max>
+  </pitch>
+  <position>
+    <x>26.5</x>
+    <y>0.0</y>
+    <z>2.0</z>
+  </position>
+</engine5>
+
+<!-- APU whine soundlevel heard inside the cockpit -->
+
+<engine5>
+  <name>APU n1 inside</name>
+  <path>Aircraft/A380-omega/Sounds/whine.wav</path>
+  <mode>looped</mode>
+  <condition>
+    <and>
+      <greater-than>
+	<property>/engines/engine[4]/n1</property>
+	<value>0.1</value>
+      </greater-than>
+      <or>
+	<equals>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>7</value>
+	</greater-than>
+      </or>
+      <not>
+	<property>sim/crashed</property>
+      </not>
+    </and>
+  </condition>
+  <volume>
+    <factor>0.1</factor>
+    <max>0.3</max>
+  </volume>
+  <pitch>
+    <property>/engines/engine[4]/n2</property>
+    <factor>0.01</factor>
+    <offset>0</offset>
+  </pitch>
+  <position>
+    <x>26.5</x>
+    <y>0.0</y>
+    <z>2.0</z>
+  </position>
+</engine5>
+
+<!-- Runway bump sound for all views -->
+
+<bump>
+  <name>bump</name>
+  <mode>looped</mode>
+  <path>Aircraft/A380-omega/Sounds/bump.wav</path>
+  <condition>
+    <or>
+      <property>/gear/gear[0]/wow</property>
+      <property>/gear/gear[1]/wow</property>
+      <property>/gear/gear[2]/wow</property>
+    </or>
+  </condition>
+  <volume>
+    <property>/velocities/groundspeed-kt</property>
+    <type>lin</type>
+    <factor>0.25</factor>
+    <min>0.1</min>
+    <max>0.5</max>
+  </volume>
+  <pitch>
+    <property>/velocities/groundspeed-kt</property>
+    <offset>0.064</offset>
+    <factor>0.0085</factor>
+  </pitch>
+</bump>
+
+<!-- Runway rumble sound for all views-->
+
+<rumble>
+  <name>rumble</name>
+  <mode>looped</mode>
+  <path>Aircraft/A380-omega/Sounds/rumble.wav</path>
+  <condition>
+    <or>
+      <property>/gear/gear[0]/wow</property>
+      <property>/gear/gear[1]/wow</property>
+      <property>/gear/gear[2]/wow</property>
+    </or>
+  </condition>
+  <volume>
+    <property>/velocities/groundspeed-kt</property>
+    <type>log</type>
+    <factor>0.5</factor>
+    <min>4</min>
+    <max>8</max>
+  </volume>
+  <pitch>
+    <property>/velocities/groundspeed-kt</property>
+    <offset>0</offset>
+    <factor>0.015</factor>
+  </pitch>
+</rumble>
+
+<!-- Landinggear thruster sound for all views -->
+
+<gear>
+  <name>gear</name>
+  <mode>in-transit</mode>
+  <path>Aircraft/A380-omega/Sounds/gear.wav</path>
+  <property>/gear/gear[0]/position-norm</property>
+  <volume>
+    <max>0.1</max>
+  </volume>
+  <!--pitch>
+  <internal>dt_play</internal>
+  <offset>0</offset>
+  <factor>-0.01</factor>
+</pitch-->
+</gear>
+
+<!-- Open nosegearbay windrumble sound for all views -->
+
+<bay>
+  <name>gearbay</name>
+  <mode>looped</mode>
+  <path>Aircraft/A380-omega/Sounds/jet2.wav</path>
+  <property>/gear/gear[0]/position-norm</property>
+  <delay-sec> 1</delay-sec>
+  <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.004</factor>
+  </volume>
+  <!-- pitch>
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.05</factor>
+  <offset>0.5</offset>
+  </pitch -->
+</bay>
+
+<!-- 2 Bonks nosegear-out lock sound for all views -->
+
+<gear2>
+  <name>nosegear-lock</name>
+  <path>Aircraft/A380-omega/Sounds/bonk.wav</path>
+  <property>/gear/gear[0]/position-norm</property>
+  <delay-sec>14</delay-sec>
+  <volume><!-- suppress bonksound at startup -->
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.01</factor>
+  <max>10.0</max>
+  </volume>
+  <pitch>
+    <offset>-0.5</offset>
+  </pitch>  
+</gear2>
+
+<gear2>
+  <name>nosegear-lock</name>
+  <path>Aircraft/A380-omega/Sounds/bonk.wav</path>
+  <property>/gear/gear[0]/position-norm</property>
+  <delay-sec>15</delay-sec>
+  <volume><!-- suppress bonksound at startup -->
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.01</factor>
+  <max>10.0</max>
+  </volume>
+  <pitch>
+    <offset>-0.5</offset>
+  </pitch>  
+</gear2>
+
+<!-- 2 Bumps nosegear-in lock sound for all views -->
+
+<gearlock1>
+  <name>lock1</name>
+  <path>Aircraft/A380-omega/Sounds/bump.wav</path>
+  <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.001</factor>
+  </volume>
+  <volume>
+    <min>10</min>
+  </volume>
+  <condition>
+    <equals>
+      <property>/gear/gear[0]/position-norm</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</gearlock1>
+
+<gearlock2>
+  <name>lock2</name>
+  <path>Aircraft/A380-omega/Sounds/bump.wav</path>
+  <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.001</factor>
+  </volume>
+  <delay-sec>0.1</delay-sec>
+  <volume>
+    <min>10</min>
+  </volume>
+  <condition>
+    <equals>
+      <property>/gear/gear[0]/position-norm</property>
+      <value>0</value>
+    </equals>
+  </condition>
+</gearlock2>
+
+<!-- 3 Wheels on surface bonk sound for all views -->
+
+<bonk1>
+  <name>nosewheel hits surface</name>
+  <path>Aircraft/A380-omega/Sounds/bonk.wav</path>
+  <property>/gear/gear[0]/wow</property>
+  <volume><!-- suppress bonksound at startup -->
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.01</factor>
+  <max>8</max>
+  </volume>
+  <pitch>
+    <offset>-0.7</offset>
+  </pitch>  
+</bonk1>
+
+<bonk2>
+  <name>left mainwheel hits surface</name>
+  <path>Aircraft/A380-omega/Sounds/bonk.wav</path>
+  <property>/gear/gear[1]/wow</property>
+  <volume><!-- suppress bonksound at startup -->
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.005</factor>
+  <min>0.0</min>
+  <max>8</max>
+  </volume>
+  <pitch>
+    <offset>-0.7</offset>
+  </pitch>  
+</bonk2>
+
+<bonk3>
+  <name>right mainwheel hits surface</name>
+  <path>Aircraft/A380-omega/Sounds/bonk.wav</path>
+  <property>/gear/gear[2]/wow</property>
+  <volume><!-- suppress bonksound at startup -->
+  <property>/velocities/airspeed-kt</property>
+  <factor>0.005</factor>
+  <min>0.0</min>
+  <max>8</max>
+  </volume>
+  <pitch>
+    <offset>-0.7</offset>
+  </pitch>  
+</bonk3>
+
+<!-- Flaps in transit sound for all views -->
+
+<flap>
+  <name>flaps</name>
+  <mode>in-transit</mode>
+  <path>Aircraft/A380-omega/Sounds/Flaps_mono.wav</path>
+  <property>/fdm/jsbsim/fcs/flap-pos-deg</property>
+  <volume>
+    <factor>0.3</factor>
+  </volume>
+</flap>
+
+<!-- Wind sound for all views -->
+
+<wind>
+  <name>wind</name>
+  <mode>looped</mode>
+  <path>Aircraft/A380-omega/Sounds/wind.wav</path>
+  <property>/velocities/airspeed-kt</property>
+  <volume>
+    <property>/position/altitude-ft</property>
+    <factor>-0.000015</factor>
+    <offset>1.0</offset>
+    <min>0.1</min>
+    <max>1.0</max>
+  </volume>
+  <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.005</factor>
+    <min>0.03</min>
+    <max>0.25</max>
+  </volume>
+  <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.025</factor>
+    <offset>1.25</offset>
+  </pitch>
+</wind>
+
+<!-- Stall sound for all views -->
+
+<stall>
+  <name>stall</name>
+  <path>Aircraft/A380-omega/Sounds/stall.wav</path>
+  <property>/sim/alarms/stall-warning</property>
+  <volume>
+    <factor>2.0</factor>
+  </volume>
+</stall>
+
+<!-- stall>
+<name>stall</name>
+<mode>looped</mode>
+<path>/Aircraft/A380-omega/Sounds/stall_mono.wav</path>
+<condition>
+  <and>
+    <greater-than>
+      <property>sim[0]/time/elapsed-sec</property>
+      <value>20</value>
+    </greater-than>
+    <less-than>
+      <property>velocities/airspeed-kt</property>
+      <property>velocities/Vso</property>
+    </less-than>
+  </and>
+  <not>
+    <property>/gear/gear[0]/wow</property>
+    <property>/gear/gear[1]/wow</property>
+    <property>/gear/gear[2]/wow</property>
+    <property>/fdm/jsbsim/fcs/flap-pos-deg</property>
+    <property>/gear/gear[0]/position-norm</property>
+    <property>sim/crashed</property>
+  </not>
+</condition>
+<volume>
+  <max>1.0</max>
+</volume>
+</stall>
+
+<stall>
+  <name>stall</name>
+  <mode>looped</mode>
+  <path>/Aircraft/A380-omega/Sounds/stall_mono.wav</path>
+  <condition>
+    <and>
+      <greater-than>
+	<property>sim[0]/time/elapsed-sec</property>
+	<value>20</value>
+      </greater-than>
+      <less-than>
+	<property>velocities/airspeed-kt</property>
+	<value>100</value>
+      </less-than>
+    </and>
+    <not>
+      <property>/gear/gear[0]/wow</property>
+      <property>/gear/gear[1]/wow</property>
+      <property>/gear/gear[2]/wow</property>
+      <property>/gear/gear[0]/position-norm</property>
+      <property>sim/crashed</property>
+    </not>
+  </condition>
+  <volume>
+    <max>1.0</max>
+  </volume>
+</stall>
+
+<stall>
+  <name>stall</name>
+  <mode>looped</mode>
+  <type>avionics</type>
+  <path>/Aircraft/A380-omega/Sounds/stall_mono.wav</path>
+  <condition>
+    <and>
+      <greater-than>
+	<property>sim[0]/time/elapsed-sec</property>
+	<value>20</value>
+      </greater-than>
+      <less-than>
+	<property>velocities/airspeed-kt</property>
+	<value>120</value>
+      </less-than>
+    </and>
+    <not>
+      <property>/gear/gear[0]/wow</property>
+      <property>/gear/gear[1]/wow</property>
+      <property>/gear/gear[2]/wow</property>
+      <property>/fdm/jsbsim/fcs/flap-pos-deg</property>
+      <property>sim/crashed</property>
+    </not>
+  </condition>
+  <volume>
+    <factor>1.0</factor>
+    <max>1.0</max>
+  </volume>
+  </stall -->
+
+  <!-- Crash sound for all views -->
+
+  <crash>
+    <name>intense ground contact</name>
+    <mode>transient</mode>
+    <path>Aircraft/A380-omega/Sounds/crash.wav</path>
+    <property>sim/crashed</property>
+    <volume>
+      <factor>1</factor>
+    </volume>
+    <pitch>
+      <factor>1.5</factor>
+    </pitch>
+  </crash>
+  
+  
+  <!-- 2 Switch sounds for all views -->
+
+  <switch>
+    <name>click on</name>
+    <mode>once</mode>
+    <path>Aircraft/A380-omega/Sounds/click_mono.wav</path>
+    <condition>
+      <property>/sim/sound/switch</property>
+    </condition>
+    <volume>
+      <factor>0.45</factor>
+    </volume>
+  </switch>
+
+  <switch>
+    <name>click off</name>
+    <mode>once</mode>
+    <path>Aircraft/A380-omega/Sounds/click_mono.wav</path>
+    <condition>
+      <not>
+	<property>/sim/sound/switch</property>
+      </not>
+    </condition>
+    <volume>
+      <factor>0.45</factor>
+    </volume>
+  </switch>
+  
+
+  <!-- Speedbrake in transit sound for all views -->
+
+  <speedbrake>
+    <name>speedbrake</name>
+    <mode>in-transit</mode>
+    <path>Aircraft/A380-omega/Sounds/whine.wav</path>
+    <condition>
+      <less-than>
+	<property>/surface-positions/speedbrake-pos-norm</property>
+	<value>0.8</value>
+      </less-than>
+      <greater-than>
+	<property>/surface-positions/speedbrake-pos-norm</property>
+	<value>0.18</value>
+      </greater-than>
+    </condition>
+    <volume>
+      <factor>0.5</factor>
+    </volume>
+  </speedbrake>
+  
+  
+  <!-- Reverse thrust sound heard in cockpit -->
+  
+  <engines>
+    <name>reverse-thrust inside</name>
+    <mode>looped</mode>
+    <path>Aircraft/A380-omega/Sounds/exhaust_loop.wav</path>
+    <condition>
+      <and>
+	<equals>
+	  <property>/engines/engine[1]/running</property>
+	  <value>1</value>
+	</equals>
+	<equals>
+	  <property>/engines/engine[1]/reverser-pos-norm</property>
+	  <value>1</value>
+	</equals>
+	<or>
+	  <equals>
+	    <property>/sim/current-view/view-number</property>
+	    <value>0</value>
+	  </equals>
+	  <greater-than>
+	    <property>/sim/current-view/view-number</property>
+	    <value>7</value>
+	  </greater-than>
+	</or>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>controls/engines/engine[1]/throttle</property>
+      <factor>1.0</factor>
+      <min>0.0</min>
+      <max>0.6</max>
+    </volume>
+  </engines>
+  
+  <!-- Reverse thrust sound heard outside cockpit -->
+  
+  <engines>
+    <name>reverse-thrust outside</name>
+    <mode>looped</mode>
+    <path>Aircraft/A380-omega/Sounds/exhaust_loop.wav</path>
+    <condition>
+      <and>
+	<equals>
+	  <property>/engines/engine[1]/running</property>
+	  <value>1</value>
+	</equals>
+	<equals>
+	  <property>/engines/engine[1]/reverser-pos-norm</property>
+	  <value>1</value>
+	</equals>
+	<greater-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>0</value>
+	</greater-than>
+	<less-than>
+	  <property>/sim/current-view/view-number</property>
+	  <value>8</value>
+	</less-than>
+	<not>
+	  <property>sim/crashed</property>
+	</not>
+      </and>
+    </condition>
+    <volume>
+      <property>controls/engines/engine[1]/throttle</property>
+      <factor>1.0</factor>
+      <min>0.0</min>
+      <max>1.0</max>
+    </volume>
+  </engines>
+  
+  <!-- 2 Seatbelt sounds for all views -->
+
+  <switch>
+    <name>seatbelt on</name>
+    <mode>once</mode>
+    <path>Aircraft/A380-omega/Sounds/chime_mono.wav</path>
+    <condition>
+      <property>/instrumentation/switches/seatbelt-sign</property>
+    </condition>
+    <volume>
+      <factor>1.0</factor>
+    </volume>
+  </switch>
+  
+  <switch>
+    <name>seatbelt off</name>
+    <mode>once</mode>
+    <path>Aircraft/A380-omega/Sounds/chime_mono.wav</path>
+    <condition>
+      <not>
+	<property>/instrumentation/switches/seatbelt-sign</property>
+      </not>
+    </condition>
+    <volume>
+      <factor>1.0</factor>
+    </volume>
+  </switch>
+  
+  <!-- Retard sound for all views -->
+  
+  <retard>
+    <name>retard</name>
+    <mode>looped</mode>
+    <type>avionics</type>
+    <path>Aircraft/A380-omega/Sounds/retard_01_mono.wav</path>
+    <condition>
+      <and>
+        <and>
+	  <greater-than>
+	    <property>controls/engines/engine[0]/thrust-lever</property>
+	    <value>0.0</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>controls/engines/engine[1]/thrust-lever</property>
+	    <value>0.0</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>controls/engines/engine[2]/thrust-lever</property>
+	    <value>0.0</value>
+	  </greater-than>
+	  <greater-than>
+	    <property>controls/engines/engine[3]/thrust-lever</property>
+	    <value>0.0</value>
+	  </greater-than>
+        </and>
+        <less-than>
+	  <property>position/altitude-agl-ft</property>
+	  <value>50</value>
+        </less-than>
+        <equals>
+	  <property>instrumentation/ecam/flight-mode</property>
+	  <value>9</value>
+        </equals>
+      </and>
+    </condition>
+    <volume>
+      <factor>3</factor>
+    </volume>
+  </retard>
+  
+  <!-- V1 sound for all views -->
+  
+  <v1>
+    <name>v1</name>
+    <mode>once</mode>
+    <type>avionics</type>
+    <path>Aircraft/A380-omega/Sounds/a380-V1.wav</path>
+    <condition>
+      <and>
+        <less-than>
+	  <property>instrumentation/ecam/flight-mode</property>
+	  <value>7</value>
+        </less-than>
+        <greater-than>
+	  <property>velocities/airspeed-kt</property>
+	  <property>instrumentation/afs/V1</property>
+        </greater-than>
+      </and>
+    </condition>
+    <volume><!-- suppress V1 sound at startup -->
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.005</factor>
+    <min>0.0</min>
+    <max>2</max>
+    </volume>
+  </v1>
+  
+  <!-- Triple-click sound for all views -->
+  
+  <mode-reversion>
+    <name>mode-reversion</name>
+    <mode>once</mode>
+    <type>avionics</type>
+    <path>Aircraft/A380-omega/Sounds/triple-click_01.wav</path>
+    <property>instrumentation/flightdirector/mode-reversion</property>
+    <volume>
+      <factor>1</factor>
+    </volume>
+  </mode-reversion>
+
+</fx>
+
+</PropertyList>
