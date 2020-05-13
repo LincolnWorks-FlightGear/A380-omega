@@ -1,0 +1,1241 @@
+<?xml version="1.0"?><!-- minor changes by ph-cor jan2016 -->
+<?xml-stylesheet href="http://jsbsim.sourceforge.net/JSBSim.xsl" type="text/xsl"?>
+<fdm_config name="A380" version="2.0" release="BETA"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+
+    <fileheader>
+        <author>Muraleedharn, Cunningham, Ampere, Hamilton, et al</author>
+        <filecreationdate> 20140709 </filecreationdate>
+        <version>1.0</version>
+        <description>Updated Airbus A380-800 Flight Dynamics - largely based of scotth1's A380 flight dynamics</description>
+    </fileheader>
+
+    <metrics>
+	<wingarea unit="FT2">     9095.5000  </wingarea>
+      	<wingspan unit="FT">       261.8000  </wingspan>
+      	<chord unit="FT">           47.9000  </chord>
+      	<htailarea unit="FT2">    2236.0200  </htailarea>
+      	<htailarm unit="FT">       106.4339  </htailarm>
+      	<vtailarea unit="FT2">    1314.4999  </vtailarea>
+      	<vtailarm unit="FT">       100.2985  </vtailarm>
+	
+
+        <location name="AERORP" unit="M">
+	    <x> 41.656 </x>
+            <y> 0 </y>
+            <z> 0 </z>
+        </location>
+        <location name="EYEPOINT" unit="IN">
+            <x> 201.2 </x>
+            <y> -32 </y>
+            <z> 80 </z>
+        </location>
+        <location name="VRP" unit="M">
+            <x> 30.0 </x>
+            <y> 0 </y>
+            <z> 0 </z>
+        </location>
+    </metrics>
+
+    <mass_balance>
+	<ixx unit="SLUG*FT2">  40378502 </ixx>
+        <iyy unit="SLUG*FT2">  38145914 </iyy>
+        <izz unit="SLUG*FT2">  79841172 </izz>
+        <emptywt unit="LBS" >    740880 </emptywt>
+        <location name="CG" unit="IN">
+          <x> 1580.79 </x>
+          <y>   0.00 </y>
+          <z> -71.85 </z>
+        </location>
+	<pointmass name="pilots" >
+          <weight unit="KG">160</weight>
+          <location name="crew" unit = "M">
+            <x>  4.0710 </x>                      
+            <y>  0.0000 </y>                      
+            <z> -7.0326 </z>                      
+          </location>                           
+          <form shape="cylinder">
+            <radius unit="M"> 1.0 </radius> <!-- wild guess -->
+            <length unit="M"> 1.0 </length> <!-- wild guess -->
+          </form> 
+         </pointmass>                            
+
+        <pointmass name="passenger main" >
+          <weight unit="KG">43040</weight>
+          <location name="passenger" unit = "M">
+            <x>  37.4554 </x>
+            <y>  0.0000 </y>
+            <z>  -5.7104 </z>
+          </location>
+          <form shape="cylinder">
+            <radius unit="M">  2.0 </radius> <!-- wild guess -->
+            <length unit="M"> 30.0 </length> <!-- wild guess -->
+          </form> 
+        </pointmass>
+
+        <pointmass name="passenger upper" >
+          <weight unit="KG">25200</weight>
+          <location name="passenger" unit = "M">
+            <x>  37.4554 </x>
+            <y>  0.0000 </y>
+            <z>  -8.3097 </z>
+          </location>
+          <form shape="cylinder">
+            <radius unit="M">  1.0 </radius> <!-- wild guess -->
+            <length unit="M"> 30.0 </length> <!-- wild guess -->
+          </form> 
+        </pointmass>
+
+        <pointmass name="cargo forward" >
+          <weight unit="KG">28577</weight>
+          <location name="POINTMASS" unit = "M">
+            <x>  15.5171 </x>
+            <y>  0.0000 </y>
+            <z>  -3.7654 </z>
+          </location>
+          <form shape="cylinder">
+            <radius unit="M">  2.0 </radius> <!-- wild guess -->
+            <length unit="M"> 10.0 </length> <!-- wild guess -->
+          </form> 
+        </pointmass>
+
+        <pointmass name="cargo aft" >
+          <weight unit="KG">20310</weight>
+          <location name="POINTMASS" unit = "M">
+            <x>  45.6932 </x>
+            <y>  0.0000 </y>
+            <z>  -4.1767 </z>
+	  </location>
+          <form shape="cylinder">
+            <radius unit="M">  2.0 </radius> <!-- wild guess -->
+            <length unit="M"> 10.0 </length> <!-- wild guess -->
+          </form> 
+        </pointmass>
+
+	<pointmass name="cargo bulk" >
+          <weight unit="KG">2515</weight>
+          <location name="POINTMASS" unit = "M">
+            <x>  52.4356 </x>
+            <y>  0.00 </y>
+	    <z>  -4.3714 </z>
+          </location>
+          <form shape="cylinder">
+            <radius unit="M">  2.0 </radius> <!-- wild guess -->
+            <length unit="M">  1.0 </length> <!-- wild guess -->
+          </form> 
+        </pointmass>
+    </mass_balance>
+
+    <ground_reactions>
+    <contact type="BOGEY" name="Nose Gear">
+            <location unit="M">
+                <x> 12.40 </x>
+                <y> 0 </y>
+                <z> -9.19 </z>
+            </location>
+            <static_friction> 0.95 </static_friction>
+            <dynamic_friction> 0.86 </dynamic_friction><!-- 0.76 -->
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 140000 </spring_coeff><!-- 44000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 60000 </damping_coeff><!-- 8000 -->
+            <max_steer unit="DEG"> 50 </max_steer>
+            <brake_group> NONE </brake_group>
+            <retractable>1</retractable>
+        </contact><!-- All main wheels 2 meters back -->
+        <contact type="BOGEY" name="Left Fwd Main gear REAR WHEELS">
+            <location unit="M">
+                <x> 43.02 </x>
+                <y> -6.23</y>
+                <z> -9.44 </z>
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      <damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer> 
+            <brake_group> LEFT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        <contact type="BOGEY" name="Right Fwd Main Gear REAR WHEELS">
+            <location unit="M">
+                <x> 43.02 </x>
+                <y>  6.23</y>
+                <z> -9.44 </z><!-- -9.44 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> RIGHT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        
+        <contact type="BOGEY" name="Left Aft Main gear FWD WHEELS">
+            <location unit="M">
+                <x> 43.95 </x>
+                <y> -3.45</y>
+                <z> -10.44 </z><!--  -8.9152 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> LEFT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        <contact type="BOGEY" name="Right Fwd Main Gear FWD WHEELS">
+            <location unit="M">
+                <x> 43.95 </x>
+                <y>  3.45</y>
+                <z> -10.44 </z><!--  -8.9152 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> RIGHT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        
+        <!-- Additional Gears for rotate animation parameters -->
+        
+        <contact type="BOGEY" name="Left Fwd Main gear FWD WHEELS">
+            <location unit="M">
+                <x> 41.60 </x>
+                <y> -6.23</y>
+                <z> -9.44 </z><!-- -9.44 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> LEFT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        <contact type="BOGEY" name="Right Fwd Main Gear FWD WHEELS">
+            <location unit="M">
+                <x> 41.60 </x>
+                <y>  6.23</y>
+                <z> -9.44 </z><!-- -9.44 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> RIGHT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        
+        <contact type="BOGEY" name="Left Aft Main gear REAR WHEELS">
+            <location unit="M">
+                <x> 46.95 </x>
+                <y> -3.45</y>
+                <z> -10.44 </z><!--  -8.9152 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> LEFT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        <contact type="BOGEY" name="Right Fwd Main Gear REAR WHEELS"><!-- Fwd altered in Aft -->
+            <location unit="M">
+                <x> 46.95 </x>
+                <y>  3.45</y>
+                <z> -10.44 </z><!--  -8.9152 -->
+            </location>
+            <static_friction> 0.8 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <rolling_friction> 0.02 </rolling_friction>
+            <spring_coeff unit="LBS/FT"> 130000 </spring_coeff><!-- 120000 -->
+      		<damping_coeff unit="LBS/FT/SEC"> 10000 </damping_coeff><!-- 7000 -->
+            <max_steer unit="DEG"> 0.0 </max_steer>
+            <brake_group> RIGHT </brake_group>
+            <retractable>1</retractable>
+        </contact>
+        
+        <!-- STRUCTURE POINTS -->
+        <contact type="STRUCTURE" name="TAIL">
+			<location unit="M">
+				<x> 63.1620 </x>
+				<y> 0 </y>
+				<z> -4.7 </z>
+			</location>
+			<static_friction> 1.0 </static_friction>
+			<dynamic_friction> 0.4 </dynamic_friction>
+			<rolling_friction> 0.4 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 200000 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+			<max_steer unit="DEG"> 0.0 </max_steer>
+			<brake_group> NONE </brake_group>
+			<retractable>0</retractable>
+		</contact>
+		
+		<contact type="STRUCTURE" name="NOSE">
+			<location unit="M">
+				<x> 9.5775 </x>
+				<y> 0 </y>
+				<z> -5.7 </z>
+			</location>
+			<static_friction> 1.0 </static_friction>
+			<dynamic_friction> 0.4 </dynamic_friction>
+			<rolling_friction> 0.4 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 200000 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+			<max_steer unit="DEG"> 0.0 </max_steer>
+			<brake_group> NONE </brake_group>
+			<retractable>0</retractable>
+		</contact>
+		
+		<contact type="STRUCTURE" name="LEFT">
+			<location unit="M">
+				<x> 58.4195 </x>
+				<y> -39.5 </y>
+				<z> -1.7 </z>
+			</location>
+			<static_friction> 1.0 </static_friction>
+			<dynamic_friction> 0.4 </dynamic_friction>
+			<rolling_friction> 0.4 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 200000 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+			<max_steer unit="DEG"> 0.0 </max_steer>
+			<brake_group> NONE </brake_group>
+			<retractable>0</retractable>
+		</contact>
+		
+		<contact type="STRUCTURE" name="RIGHT">
+			<location unit="M">
+				<x> 58.4195 </x>
+				<y> 39.5 </y>
+				<z> -1.7 </z>
+			</location>
+			<static_friction> 1.0 </static_friction>
+			<dynamic_friction> 0.4 </dynamic_friction>
+			<rolling_friction> 0.4 </rolling_friction>
+			<spring_coeff unit="LBS/FT"> 200000 </spring_coeff>
+			<damping_coeff unit="LBS/FT/SEC"> 50000 </damping_coeff>
+			<max_steer unit="DEG"> 0.0 </max_steer>
+			<brake_group> NONE </brake_group>
+			<retractable>0</retractable>
+		</contact>
+
+    </ground_reactions>
+    <propulsion>
+        <engine file="TRENT-900">
+            <location unit="M">
+                <x>  46.9824 </x>
+                <y>  -26.2467 </y>
+		<z>  -3.4 </z>
+            </location>
+            <orient unit="DEG">
+                <roll> 0.0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+            <feed>0</feed>
+            <thruster file="direct">
+                <location unit="M">
+		    <x> 46.9824 </x>
+		    <y> -26.2467 </y>
+		    <z> -3.4 </z>
+                </location>
+                <orient unit="DEG">
+                    <roll> 0.0 </roll>
+                    <pitch> 0.0 </pitch>
+                    <yaw> 0.0 </yaw>
+                </orient>
+            </thruster>
+        </engine>
+        <engine file="TRENT-900">
+            <location unit="M">
+                <x> 38.9500 </x>
+                <y> -15.9365 </y>
+		<z> -2.55 </z>
+            </location>
+            <orient unit="DEG">
+                <roll> 0.0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+            <feed>1</feed>
+            <thruster file="direct">
+                <location unit="M">
+		    <x> 38.9500 </x>
+		    <y> -15.9365 </y>
+		    <z> -2.55 </z>
+                </location>
+                <orient unit="DEG">
+                    <roll> 0.0 </roll>
+                    <pitch> 0.0 </pitch>
+                    <yaw> 0.0 </yaw>
+                </orient>
+            </thruster>
+        </engine>
+        <engine file="TRENT-900">
+            <location unit="M">
+                <x> 38.9500 </x>
+		<y> 15.9365 </y>
+		<z> -2.55 </z>
+            </location>
+            <orient unit="DEG">
+                <roll> 0.0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+            <feed>2</feed>
+            <thruster file="direct">
+                <location unit="M">
+		    <x> 38.9500 </x>
+		    <y> 15.9365 </y>
+		    <z> -2.55 </z>
+                </location>
+                <orient unit="DEG">
+                    <roll> 0.0 </roll>
+                    <pitch> 0.0 </pitch>
+                    <yaw> 0.0 </yaw>
+                </orient>
+            </thruster>
+        </engine>
+        <engine file="TRENT-900">
+            <location unit="M">
+                <x>  46.9824 </x>
+                <y>  26.2467 </y>
+		<z>  -3.4 </z>
+            </location>
+            <orient unit="DEG">
+                <roll> 0.0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+            <feed>3</feed>
+            <thruster file="direct">
+                <location unit="M">
+		    <x>  46.9824 </x>
+                    <y>  26.2467 </y>
+		    <z>  -3.4 </z>
+                </location>
+                <orient unit="DEG">
+                    <roll> 0.0 </roll>
+                    <pitch> 0.0 </pitch>
+                    <yaw> 0.0 </yaw>
+                </orient>
+            </thruster>
+        </engine>
+      <engine file="APU">
+            <location unit="IN">
+                <x> 100 </x>
+                <y> 0 </y>
+                <z> 0 </z>
+            </location>
+            <orient unit="DEG">
+                <roll> 0.0 </roll>
+                <pitch> 0 </pitch>
+                <yaw> 0 </yaw>
+            </orient>
+	    <feed>0</feed>
+            <thruster file="direct">
+                <location unit="IN">
+                <x> 100 </x>
+                <y> 0 </y>
+                <z> 0 </z>
+                </location>
+                <orient unit="DEG">
+                    <roll> 0.0 </roll>
+                    <pitch> 0.0 </pitch>
+                    <yaw> 0.0 </yaw>
+                </orient>
+            </thruster>
+        </engine>
+        
+
+    <!--            
+           There are 11 actual fuel tanks on the A380. In addition to the 11 tanks, there are 2 vent tanks (at the wing tips) - 
+           L VENT TANK 
+           L OUTER TANK
+           FEED TANK 1 - engine 1 feed
+           L MID TANK
+           L INNER TANK
+           FEED TANK 2 - engine 2 feed
+           TRIM TANK
+           FEED TANK 3 - engine 3 feed
+           R INNER TANK - apu feed
+           R MID TANK
+           FEED TANK 4 - engine 4 feed
+           R OUTER TANK
+           R VENT TANK
+           
+           During normal operation, the fuel flow is like -
+           L OUTER TANK - FEED TANK 1
+           L MID TANK - FEED TANK 1
+           L MID TANK - L INNER TANK
+           L INNER TANK - FEED TANK 2
+           R INNER TANK - FEED TANK 3
+           R MID TANK - R INNER TANK
+           R MID TANK - FEED TANK 4
+           R OUTER TNAK - FEED TANK 4
+           
+           Cross-feed balances fuel between the engine feed tanks and the R INNER TANK for APU
+           
+           During flight, fuel is constantly being moved between to/from the trim tanks to maintain optimum aircraft cg (different for t/o, clb, crz and app)
+           R INNER TANK - TRIM TANK
+           L INNER TANK - TRIM TANK
+    -->
+      <tank type="FUEL">    <!-- FEED TANK 1 -->
+            <location unit="M">
+		<x> 48.5306 </x>
+		<y> -23.4729 </y>
+		<z> -5.01 </z>
+            </location>
+            <capacity unit="LBS"> 49455 </capacity> <!-- 7390 US gal -->
+            <contents unit="LBS"> 16775 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.87 </radius> 
+        </tank>
+        <tank type="FUEL">    <!-- FEED TANK 2 -->
+            <location unit="M">
+		<x> 37.4956 </x>
+		<y> -7.6904 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 51896 </capacity> <!-- 7760 US gal -->
+            <contents unit="LBS"> 18280 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.9 </radius> 
+         </tank>
+        <tank type="FUEL">    <!-- FEED TANK 3 -->
+            <location unit="M">
+		<x> 37.4956 </x>
+		<y> 7.6904 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 51896 </capacity> <!-- 7760 US gal -->
+            <contents unit="LBS"> 18280 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.9 </radius> 
+         </tank>
+        <tank type="FUEL">    <!-- FEED TANK 4 -->
+            <location unit="M">
+		<x> 48.5306 </x>
+		<y> 23.4729 </y>
+		<z> -5.01 </z>
+            </location>
+            <capacity unit="LBS"> 49455 </capacity> <!-- 7390 US gal -->
+            <contents unit="LBS"> 16775 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.87 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- L INNER TANK -->
+            <location unit="M">
+		<x> 42.1149 </x>
+		<y> -8.5886 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 81612 </capacity> <!-- 12190 US gal -->
+            <contents unit="LBS"> 17034 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 2.21 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- R INNER TANK -->
+            <location unit="M">
+		<x> 42.1149 </x>
+		<y> 8.5886 </y>
+		<z> -3.3069 </z>
+            </location>
+            <capacity unit="LBS"> 81612 </capacity> <!-- 12190 US gal -->
+            <contents unit="LBS"> 17034 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 2.21 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- L MID TANK -->
+            <location unit="M"> 
+		<x> 44.0396 </x>
+		<y> -15.0043 </y>
+		<z> -4.67 </z>
+            </location>
+            <capacity unit="LBS"> 69690 </capacity> <!-- 9630 US gal -->
+            <contents unit="LBS"> 16826 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 2.04 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- R MID TANK -->
+            <location unit="M">
+		<x> 44.0396 </x>
+		<y> 15.0043 </y>
+		<z> -4.67 </z>
+            </location>
+            <capacity unit="LBS"> 69690 </capacity> <!-- 9630 US gal -->
+            <contents unit="LBS"> 16826 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 2.04 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- L OUTER TANK -->
+            <location unit="M">
+		<x> 52.7169 </x>
+		<y> -30.1754 </y>
+		<z> -5.28 </z>
+            </location>
+            <capacity unit="LBS"> 18607 </capacity> <!-- 2760 US gal -->
+            <contents unit="LBS"> 10434 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.35 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- R OUTER TANK -->
+            <location unit="M">
+		<x> 52.7169 </x>
+		<y> 30.1754 </y>
+		<z> -5.28 </z>
+            </location>
+            <capacity unit="LBS"> 18607 </capacity> <!-- 2760 US gal -->
+            <contents unit="LBS"> 10434 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.35 </radius> 
+         </tank>
+	<tank type="FUEL">    <!-- TRIM TANK -->
+            <location unit="M">
+		<x> 60.8777 </x>
+		<y> 0.0000 </y>
+		<z> -7.9141 </z>
+            </location>
+            <capacity unit="LBS"> 41920 </capacity> <!-- 8280 US gal -->
+            <contents unit="LBS"> 20000 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.77 </radius> 
+         </tank>
+         <tank type="FUEL">    <!-- L VENT -->
+         <location unit="M">
+		<x> 53 </x>
+		<y> -35 </y>
+		<z> -5.32 </z>
+            </location>
+            <capacity unit="LBS"> 2025 </capacity> <!-- 400 US gal -->
+            <contents unit="LBS"> 0 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 0.8 </radius> 
+         </tank>
+         <tank type="FUEL">    <!-- R VENT -->
+            <location unit="M">
+		<x> 53 </x>
+		<y> 35 </y>
+		<z> -5.32 </z>
+            </location>
+            <capacity unit="LBS"> 2025 </capacity> <!-- 400 US gal -->
+            <contents unit="LBS"> 0 </contents>
+            <type>JET-A</type>
+            <radius unit="M"> 1.77 </radius> 
+         </tank>
+
+    </propulsion>
+    
+    <system file="pushback"/> 
+
+    <flight_control name="FCS: A380">
+    
+     <channel name="All">
+     
+     	<!-- All properties used in the flight control system are fly-by-wire output properties -->
+     
+     	<!-- FCS: Flight Control System - PITCH AXIS -->
+     	
+     	<!-- 5 pitch control surfaces - HSTB, LOB ELEV, LIB ELEV, RIB ELEV, ROB ELEV -->
+
+        <summer name="Pitch Trim Sum"> <!-- FIXME - Is this really required anymore? -->
+            <input>fcs/hstb-fbw-output</input> <!-- Horizontal Stabilizer 	- between -0.4 and 0.4 -->
+            <input>fcs/elev-lob-output</input> <!-- Left Outboard Elevator output	- between -0.18 and 0.18 -->
+            <input>fcs/elev-lib-output</input> <!-- Left Inboard Elevator output	- between -0.12 and 0.12 -->
+            <input>fcs/elev-rob-output</input> <!-- Right Outboard Elevator output - between -0.18 and 0.18 -->
+            <input>fcs/elev-rib-output</input> <!-- Right Inboard Elevator output	- between -0.12 and 0.12 -->
+            <clipto>
+                <min>-1</min>
+                <max>1</max>
+            </clipto>
+        </summer>
+
+        <aerosurface_scale name="Elevator Trim Control">
+            <input>fcs/hstb-fbw-output</input>
+            <range>
+                <min>-0.35</min>
+                <max>0.3</max>
+            </range>
+            <output>fcs/hstab-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Outboard elevator Control">
+            <input>fcs/elev-lob-output</input>
+            <range>
+                <min>-0.52</min>
+                <max>0.52</max>
+            </range>
+            <output>fcs/elev-lob-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Outboard elevator Control">
+            <input>fcs/elev-rob-output</input>
+            <range>
+                <min>-0.52</min>
+                <max>0.52</max>
+            </range>
+            <output>fcs/elev-rob-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Inboard elevator Control">
+            <input>fcs/elev-lib-output</input>
+            <range>
+                <min>-0.60</min>
+                <max>0.60</max>
+            </range>
+            <output>fcs/elev-lib-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Inboard elevator Control">
+            <input>fcs/elev-rib-output</input>
+            <range>
+                <min>-0.60</min>
+                <max>0.60</max>
+            </range>
+            <output>fcs/elev-rib-pos-rad</output>
+        </aerosurface_scale>
+        
+        <!-- FCS: Flight Control System - ROLL AXIS -->
+        
+        <!-- 10 roll control surfaces - ALRN-LOB, ALRN-LMD, ALRN-LIB, LSP8, LSP7, RSP7, RSP8, ALRN-RIB, ALRN-RMD, ALRN-ROB -->
+
+        <summer name="Roll Trim Sum">
+            <input>fcs/alrn-lob-fbw-output</input> <!-- Left Outboard Aileron	- between -0.14 and 0.14 -->
+            <input>fcs/alrn-lmd-fbw-output</input> <!-- Left Outboard Aileron	- between -0.10 and 0.10 -->
+            <input>fcs/alrn-lib-fbw-output</input> <!-- Left Outboard Aileron	- between -0.09 and 0.09 -->
+            <input>fcs/lsp8-fbw-output</input> <!-- Left Spoiler 8		- between -0.09 and 0.00 -->
+            <input>fcs/lsp7-fbw-output</input> <!-- Left Spoiler 7		- between -0.08 and 0.00 -->
+            <input>fcs/alrn-rob-fbw-output</input> <!-- Left Outboard Aileron	- between -0.14 and 0.14 -->
+            <input>fcs/alrn-rmd-fbw-output</input> <!-- Left Outboard Aileron	- between -0.10 and 0.10 -->
+            <input>fcs/alrn-rib-fbw-output</input> <!-- Left Outboard Aileron	- between -0.09 and 0.09 -->
+            <input>fcs/rsp8-fbw-output</input> <!-- Right Spoiler 8		- between  0.00 and 0.09 -->
+            <input>fcs/rsp7-fbw-output</input> <!-- Right Spoiler 7		- between  0.00 and 0.08-->
+            <clipto>
+                <min>-1</min>
+                <max>1</max>
+            </clipto>
+        </summer>
+
+        <aerosurface_scale name="Left Outboard Aileron Control">
+            <input>fcs/alrn-lob-fbw-output</input>
+            <range>
+                <min>-0.35</min>
+                <max>0.35</max>
+            </range>
+            <output>fcs/alrn-lob-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Middle Aileron Control">
+            <input>fcs/alrn-lmd-fbw-output</input>
+            <range>
+                <min>-0.35</min>
+                <max>0.35</max>
+            </range>
+            <output>fcs/alrn-lmd-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Inboard Aileron Control">
+            <input>fcs/alrn-lib-fbw-output</input>
+            <range>
+                <min>-0.40</min>
+                <max>0.40</max>
+            </range>
+            <output>fcs/alrn-lib-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Outboard Aileron Control">
+            <input>fcs/alrn-rob-fbw-output</input>
+            <range>
+                <min>-0.35</min>
+                <max>0.35</max>
+            </range>
+            <output>fcs/alrn-rob-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Middle Aileron Control">
+            <input>fcs/alrn-rmd-fbw-output</input>
+            <range>
+                <min>-0.35</min>
+                <max>0.35</max>
+            </range>
+            <output>fcs/alrn-rmd-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Inboard Aileron Control">
+            <input>fcs/alrn-rib-fbw-output</input>
+            <range>
+                <min>-0.40</min>
+                <max>0.40</max>
+            </range>
+            <output>fcs/alrn-rib-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Spoiler 8 Control">
+            <input>fcs/lsp8-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>1</max>
+            </range>
+            <output>fcs/lsp8-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 8 Control">
+            <input>fcs/rsp8-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>1</max>
+            </range>
+            <output>fcs/rsp8-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Spoiler 7 Control">
+            <input>fcs/lsp7-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.94</max>
+            </range>
+            <output>fcs/lsp7-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 7 Control">
+            <input>fcs/rsp7-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.94</max>
+            </range>
+            <output>fcs/rsp7-pos-rad</output>
+        </aerosurface_scale>
+	
+	<!-- FCS: Flight Control System - YAW -->
+	
+        <summer name="Rudder Command Sum">
+            <input>fcs/rudder-fbw-output</input>
+            <input>fcs/yaw-trim-cmd-norm</input>
+            <clipto>
+                <min>-1</min>
+                <max>1</max>
+            </clipto>
+        </summer>
+
+        <scheduled_gain name="Yaw Damper Rate">
+            <input>velocities/r-aero-rad_sec</input>
+            <table>
+                <independentVar>aero/qbar-psf</independentVar>
+                <tableData>
+                    3.0000	0.0000
+                    11.0000	2.0000
+                </tableData>
+            </table>
+        </scheduled_gain>
+
+        <scheduled_gain name="Yaw Damper Beta">
+            <input>aero/beta-rad</input>
+            <table>
+                <independentVar>aero/qbar-psf</independentVar>
+                <tableData>
+                    3.0000	0.0000
+                    11.0000	0.0000
+                </tableData>
+            </table>
+        </scheduled_gain>
+
+        <summer name="Yaw Damper Sum">
+            <input>fcs/yaw-damper-beta</input>
+            <input>fcs/yaw-damper-rate</input>
+            <clipto>
+                <min>-0.2000</min>
+                <max>0.2000</max>
+            </clipto>
+        </summer>
+
+        <scheduled_gain name="Yaw Damper Final">
+            <input>fcs/yaw-damper-sum</input>
+            <table>
+                <independentVar>aero/qbar-psf</independentVar>
+                <tableData>
+                    2.9900	0.0000
+                    3.0000	1.0000
+                </tableData>
+            </table>
+        </scheduled_gain>
+
+        <summer name="Rudder Sum">
+            <input>fcs/rudder-command-sum</input>
+            <clipto>
+                <min>-1.0000</min>
+                <max>1.0000</max>
+            </clipto>
+        </summer>
+
+        <aerosurface_scale name="Rudder Control">
+            <input>fcs/rudder-sum</input>
+            <range>
+                <min>-0.3500</min>
+                <max>0.3500</max>
+            </range>
+            <output>fcs/rudder-pos-rad</output>
+        </aerosurface_scale>
+
+	<!-- All the flaps (excluding slats ofcourse) are controlled by all 3 hydraulic systems, so a combined controller can be used as it has been so far -->
+
+        <kinematic name="Flaps Control">
+            <input>fcs/flap-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>7.2720</position>
+                    <time>15.0</time>
+                </setting>
+                <setting>
+                    <position>15.4530</position>
+                    <time>5.0</time>
+                </setting>
+				<setting>
+				  <position>23.6340</position>
+				  <time>4.0</time>
+				</setting>
+                <setting>
+                    <position>30.0000</position>
+                    <time>5.0</time>
+                </setting>
+            </traverse>
+            <output>fcs/flap-pos-deg</output>
+	  </kinematic>
+
+            <aerosurface_scale name="Flap Position Normalizer">
+              <input>fcs/flap-pos-deg</input>
+              <domain>
+                <min>0</min>  <!-- Flaps actual minimum position -->
+                <max>30</max>  <!-- Flaps actual maximum position -->
+              </domain>
+              <range>
+                <min>0</min>  <!-- Flaps normalized minimum position -->
+                <max>1</max>  <!-- Flaps normalized maximum position -->
+              </range>
+              <output>fcs/flap-pos-norm</output>
+            </aerosurface_scale>
+	
+	
+	<kinematic name="fcs/leading-edge-flap-cmd-norm">
+	  <input>fcs/slat-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>30.0</position>
+                    <time>9.0</time>
+                </setting>
+	      </traverse>
+	      <output>fcs/leading-edge-flap-pos-deg</output>
+	</kinematic>
+	
+	<kinematic name="fcs/leading-edge-slat-cmd-norm">
+	  <input>fcs/slat-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>20.0</position>
+                    <time>5.0</time>
+                </setting>
+	      </traverse>
+	      <output>fcs/leading-edge-slat-pos-deg</output>
+	</kinematic>
+	
+
+	<kinematic name="gear/unit[0]/pos">
+	    <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>  
+                <setting>
+                    <position>1.0000</position>
+                    <time>16.0000</time>
+                </setting>  
+            </traverse>
+            <output>gear/unit[0]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[1]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting> 
+                    <position>1.0000</position>
+                    <time>25.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[1]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[2]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>1.0000</position>
+                    <time>30.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[2]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[3]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting> 
+                    <position>1.0000</position>
+                    <time>31.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[3]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[4]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>1.0000</position>
+                    <time>29.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[4]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[5]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting> 
+                    <position>1.0000</position>
+                    <time>25.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[5]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[6]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>1.0000</position>
+                    <time>25.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[6]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[7]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting> 
+                    <position>1.0000</position>
+                    <time>25.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[7]/pos-norm</output>
+        </kinematic>
+        <kinematic name="gear/unit[8]/pos">
+            <input>gear/gear-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>1.0000</position>
+                    <time>27.0000</time>
+                </setting>
+            </traverse>
+            <output>gear/unit[8]/pos-norm</output>
+        </kinematic>
+
+        <kinematic name="Speedbrake Control">
+            <input>fcs/speedbrake-cmd-norm</input>
+            <traverse>
+                <setting>
+                    <position>0.0000</position>
+                    <time>0.0000</time>
+                </setting>
+                <setting>
+                    <position>1.0000</position>
+                    <time>1.0000</time>
+                </setting>
+            </traverse>
+            <output>fcs/speedbrake-pos-norm</output>
+        </kinematic>
+	
+	<!-- Individual spoiler surface scalers (except 7 and 8) -->
+	<aerosurface_scale name="Left Spoiler 1 Control">
+            <input>fcs/lsp1-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.53</max>
+            </range>
+            <output>fcs/lsp1-pos-rad</output>
+        </aerosurface_scale>
+	
+	<aerosurface_scale name="Left Spoiler 2 Control">
+            <input>fcs/lsp2-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.55</max>
+            </range>
+            <output>fcs/lsp2-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Spoiler 3 Control">
+            <input>fcs/lsp3-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.72</max>
+            </range>
+            <output>fcs/lsp3-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Spoiler 4 Control">
+            <input>fcs/lsp4-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.75</max>
+            </range>
+            <output>fcs/lsp4-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Spoiler 5 Control">
+            <input>fcs/lsp5-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.85</max>
+            </range>
+            <output>fcs/lsp5-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Left Spoiler 6 Control">
+            <input>fcs/lsp6-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.9</max>
+            </range>
+            <output>fcs/lsp6-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 1 Control">
+            <input>fcs/rsp1-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.53</max>
+            </range>
+            <output>fcs/rsp1-pos-rad</output>
+        </aerosurface_scale>
+	
+	<aerosurface_scale name="Right Spoiler 2 Control">
+            <input>fcs/rsp2-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.55</max>
+            </range>
+            <output>fcs/rsp2-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 3 Control">
+            <input>fcs/rsp3-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.72</max>
+            </range>
+            <output>fcs/rsp3-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 4 Control">
+            <input>fcs/rsp4-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.75</max>
+            </range>
+            <output>fcs/rsp4-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 5 Control">
+            <input>fcs/rsp5-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.85</max>
+            </range>
+            <output>fcs/rsp5-pos-rad</output>
+        </aerosurface_scale>
+        
+        <aerosurface_scale name="Right Spoiler 6 Control">
+            <input>fcs/rsp6-fbw-output</input>
+            <range>
+                <min>0</min>
+                <max>0.9</max>
+            </range>
+            <output>fcs/rsp6-pos-rad</output>
+        </aerosurface_scale>
+
+
+     </channel>
+    </flight_control>
+    
+    <aerodynamics file="A380-aero.xml"/>
+    
+    <external_reactions>
+ 	  <force name="pushback" frame="BODY">
+	      <location unit="IN">
+		   <x>12.150</x>
+		   <y>-0.875</y>
+		   <z>1.641</z>
+		</location>
+	      <direction>
+		   <x>1</x>
+		   <y>0</y>
+		   <z>0</z>
+		</direction>
+	 </force>
+    </external_reactions>
+
+
+</fdm_config>
