@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?><!-- minor changes by ph-cor jan2016 -->
+
+<!-- Airbus A320neo Aileron Control -->
+
+<PropertyList>
+
+	<pid-controller>
+		<name>FCU/AP Aileron Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/outputs/aileron</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/outputs/target-bank</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/aileron</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>0.06</Kp><!-- 0.06 controller gain -->
+			<beta>0.3</beta><!-- 1 error gain -->
+			<alpha>0.4</alpha><!-- 0.1 rate of change damper -->
+			<gamma>0</gamma><!-- 0 rate of change kicker -->
+			<Ti>10</Ti>
+			<Td>0.00005</Td>
+			<u_min>-0.8</u_min>
+			<u_max>0.8</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FCU/AP Aileron NAV1 Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/outputs/aileron-nav1</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-deg</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/outputs/target-bank</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/aileron</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>0.06</Kp><!-- 0.04 controller gain -->
+			<beta>0.5</beta><!-- 1  error gain -->
+			<alpha>0.8</alpha><!-- 0.1 rate of change damper -->
+			<gamma>0</gamma><!-- 0 rate of change kicker -->
+			<Ti>10</Ti>
+			<Td>0.00005</Td>
+			<u_min>-0.8</u_min>
+			<u_max>0.8</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

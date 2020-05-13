@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Airbus Fly-by-Wire -->
+
+<PropertyList>
+
+	<!-- Basic Pitch and Roll Rate Controls -->
+
+	<!-- pid-controller>
+		<name>FBW Pitch Rate G-force Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/elevator/load-factor</prop>
+		</enable>
+		<input>
+			<prop>/accelerations/pilot-gdamped</prop>
+		</input>
+		<reference>
+			<prop>/fbw/target-pitch-gforce</prop>
+		</reference>
+		<output>
+			<prop>/fdm/jsbsim/fcs/elevator-fbw-output</prop>
+		</output>
+		<config>
+			<Kp>-1</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller -->
+	
+	<pid-controller>
+		<name>FBW Outboard Elevators Stabilizer</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/elev-ob-stable</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+		</input>
+		<reference>
+			<prop>/fbw/pitch-hold</prop>
+		</reference>
+		<output>
+			<prop>/fbw/outputs/elev-ob</prop>
+		</output>
+		<config>
+			<Kp>-0.04</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>10</Ti>
+			<Td>0.00000001</Td>
+			<u_min>-0.5</u_min>
+			<u_max>0.5</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Outboard Elevators Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/elev-ob-enable</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/cmd-pitch-rate</prop>
+		</reference>
+		<output>
+			<prop>/fbw/outputs/elev-ob</prop>
+		</output>
+		<config>
+			<Kp>-0.06</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>5</Ti>
+			<Td>0.0000000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Inboard Elevators Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/elev-ib-enable</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/cmd-pitch-rate</prop>
+		</reference>
+		<output>
+			<prop>/fbw/outputs/elev-ib</prop>
+		</output>
+		<config>
+			<Kp>-0.05</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>5</Ti>
+			<Td>0.0000000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Outboard Ailerons Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/alrn-ob-enable</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/cmd-roll-rate</prop>
+		</reference>
+		<output>
+			<prop>/fbw/outputs/alrn-ob</prop>
+		</output>
+		<config>
+			<Kp>0.035</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>2</Ti>
+			<Td>0.00000001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Middle Ailerons Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/alrn-md-enable</prop>
+		</enable>
+		<input>
+			<prop>/orientation/roll-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/cmd-roll-rate</prop>
+		</reference>
+		<output>
+			<prop>/fbw/outputs/alrn-md</prop>
+		</output>
+		<config>
+			<Kp>0.045</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>0.65</Ti>
+			<Td>0.0001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FBW Yaw Damper</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/fbw/yaw-damper</prop>
+		</enable>
+		<input>
+			<prop>/orientation/yaw-rate-degps</prop>
+		</input>
+		<reference>
+			<prop>/fbw/cmd-yaw-rate</prop>
+		</reference>
+		<output>
+			<prop>/fbw/outputs/rudder</prop>
+		</output>
+		<config>
+			<Kp>-0.025</Kp>
+			<beta>1</beta>
+			<alpha>0.1</alpha>
+			<gamma>0</gamma>
+			<Ti>0.15</Ti>
+			<Td>0.0001</Td>
+			<u_min>-1</u_min>
+			<u_max>1</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>

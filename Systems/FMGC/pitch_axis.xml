@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?><!-- minor changes by ph-cor jan2016 -->
+
+<!-- Airbus A320neo Elevator Control -->
+
+<PropertyList>
+
+	<pid-controller>
+		<name>FCU/AP Elevator Control</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/outputs/elevator</prop>
+		</enable>
+		<input>
+			<prop>/orientation/pitch-deg</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/outputs/target-pitch</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.01</Kp><!-- -0.01 controller gain -->
+			<beta>0.5</beta><!-- 1 error gain -->
+			<alpha>1</alpha><!-- 0.1 rate of change damper -->
+			<gamma>0</gamma><!-- 0 rate of change kicker -->
+			<Ti>10</Ti><!-- 10 -->
+			<Td>0.00001</Td>
+			<u_min>-0.15</u_min><!-- -0.15 -->
+			<u_max>0.1</u_max><!-- 0.1 -->
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FCU/AP Elevator Control VS</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/outputs/elevator-vs</prop>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/flight-management/outputs/target-vs</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.0075</Kp><!-- -0.0075 controller gain -->
+			<beta>0.3</beta><!-- 1 error gain -->
+			<alpha>0.4</alpha><!-- 0.1 rate of change damper -->
+			<gamma>0</gamma> <!-- 0 rate of change kicker -->
+			<Ti>10</Ti>
+			<Td>0.00001</Td>
+			<u_min>-0.15</u_min>
+			<u_max>0.1</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>FCU/AP Elevator Control GS</name>
+		<debug type="bool">false</debug>
+		<enable>
+			<prop>/flight-management/outputs/elevator-gs</prop>
+		</enable>
+		<input>
+			<prop>/velocities/vertical-speed-fps</prop>
+		</input>
+		<reference>
+			<prop>/instrumentation/nav[0]/gs-rate-of-climb</prop>
+		</reference>
+		<output>
+			<prop>/controls/flight/elevator</prop> <!-- This is basically the fbw input prop -->
+		</output>
+		<config>
+			<Kp>-0.06</Kp><!-- -0.05 controller gain -->
+			<beta>0.4</beta><!-- 1 error gain -->
+			<alpha>0.4</alpha><!-- 0.1 rate of change damper -->
+			<gamma>0</gamma><!-- 0 rate of change kicker -->
+			<Ti>10</Ti>
+			<Td>0.000001</Td>
+			<u_min>-0.15</u_min>
+			<u_max>0.15</u_max>
+		</config>
+	</pid-controller>
+
+</PropertyList>
