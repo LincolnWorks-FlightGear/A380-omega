@@ -1,0 +1,8 @@
+(Airbus A380) Multi-Function Display
+Narendran Muraleedharan (c) 2014
+
+NOTE - The A380's MFD is NOT the same as the MFD terminology used by Boeing aircraft and previous Airbus aircraft. This MFD is simply another nomenclature for an older airbus mCDU or a boeing FMC.
+
+Ofcourse, the functionality is a little different and it looks a little different. The MFD connects the pilot with the flightplan management system (FMS) onboard the aircraft. Please see A380/Systems/FMGC/ for more information on the FMS.
+
+Please refer to the nasal files for more information on how the pages are managed

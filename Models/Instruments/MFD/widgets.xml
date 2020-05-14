@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<load>
+		
+	</load>
+	<widgets>
+		<widget>
+			<type>click</type>
+			<objects>
+				<object>fms_mode_text</object>
+				<object>fms_mode_box</object>
+				<object>fms_mode_static</object>
+				<function>
+					t.svgCache["position_dropdown"].hide();
+					t.svgCache["active_dropdown"].hide();
+					if(t.svgCache["dropdown"].getVisible()) {
+						t.svgCache["dropdown"].hide();
+						t.svgCache["fms_mode_box"].setColorFill(colors.gray1);
+					} else {
+						t.svgCache["dropdown"].show();
+						t.svgCache["fms_mode_box"].setColorFill(colors.gray2);
+					}
+				<function>
+			</objects>
+		</widget>
+		<widget>
+		
+		</widget>
+	</widgets>
+	
+</PropertyList>

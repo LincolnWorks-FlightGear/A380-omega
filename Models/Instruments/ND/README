@@ -1,0 +1,25 @@
+============================= NAVIGATION DISPLAY ===============================
+
+Based on the FG Generic ND using canvas mapStructure.
+
+The model and XML are integrated into the FlightDeck model - if you came here looking to copy this ND into your aircraft, try the 777/747-400 instead.
+
+============================= WEATHER RADAR LAYER ==============================
+WunderMap Live WXRadar Instrument
+Narendran M (c) 2014
+
+To be able to use the weather radar, you require a subscription the wunderground's API. You can get a developer key for FREE which lets you submit 500 calls per day at about 10 calls per minute.
+
+The WXR instrument has been designed to make only 1 call per 15 minutes as the weather information does not change that often. The received data is then modified to match current situation.
+
+You can acquire a free subscription to the API here - http://www.wunderground.com/weather/api/
+
+Once you sign up to the service, you will receive a key ID formed with various alphanumberic characters - copy that key ID and paste it into the api-key field in the /A380-omega/Models/Instruments/WXR/api_key.xml file
+
+============================== !IMPORTANT NOTE! ================================
+
+This instrument will only work in displaying WunderMap's Radar/Satellite layer for real/Live Weather data. Please enable Live Data in your Weather Dialog to make full use of this instrument.
+
+The WXR Layer will NOT match your weather IF you are using custom simulated weather data.
+
+The Displayed Radar/Satellite Layers belong to http://www.wunderground.com and NOT the aircraft/instrument developer. (aka. me)
