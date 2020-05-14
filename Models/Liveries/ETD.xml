@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<sim>
+		<model>
+			<livery>
+				<name type="string">Etihad Airways (New Livery)</name>
+				<texture>Liveries/ETD.png</texture>
+			</livery>
+		</model>
+	</sim>
+</PropertyList>
