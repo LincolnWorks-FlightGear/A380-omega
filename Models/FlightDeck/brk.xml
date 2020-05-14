@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+
+<PropertyList>
+	<path>fd_brk.ac</path>
+	
+	<!-- Animations -->
+
+	<!-- Brakes Pressure Indicator -->
+	<animation>
+		<type>rotate</type>
+		<object-name>needle.accu</object-name>
+		<property>/hydraulics/brakes/accumulator-pressure-psi</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>2200</ind><dep>115</dep></entry>
+			<entry><ind>2201</ind><dep>115</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.2427</y-m>
+			<z-m>-0.2154</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>needle.brk.l</object-name>
+		<property>/hydraulics/brakes/pressure-left-psi</property>
+		<factor>0.035</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.2305</y-m>
+			<z-m>-0.2370</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>needle.brk.r</object-name>
+		<property>/hydraulics/brakes/pressure-right-psi</property>
+		<factor>-0.035</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.2551</y-m>
+			<z-m>-0.2370</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+</PropertyList>

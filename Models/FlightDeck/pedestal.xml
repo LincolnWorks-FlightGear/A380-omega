@@ -1,0 +1,644 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+
+<PropertyList>
+	<path>fd_pedestal.ac</path>
+	
+	<animation>
+        <type>select</type>
+        <object-name>mfd.l</object-name>
+        <object-name>mfd.r</object-name>
+        <object-name>sd</object-name>
+        <condition>
+            <equals>
+                <property>systems/electric/outputs/avionics</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+	
+	<!-- Animations -->
+	<!-- ENGINE MASTER -->
+	<animation>
+		<type>pick</type>
+		<object-name>sw.eng.1.master</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/engines/engine[0]/cutoff</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.eng.1.master</object-name>
+		<property>/controls/engines/engine[0]/cutoff</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>-26</dep></entry>
+		</interpolation>
+		<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.34</x-m>
+			<y-m>0.000</y-m>
+			<z-m>-0.62</z-m>
+		</center>  
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.eng.2.master</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/engines/engine[1]/cutoff</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.eng.2.master</object-name>
+		<property>/controls/engines/engine[1]/cutoff</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>-26</dep></entry>
+		</interpolation>
+		<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.34</x-m>
+			<y-m>0.000</y-m>
+			<z-m>-0.62</z-m>
+		</center>  
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.eng.3.master</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/engines/engine[2]/cutoff</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.eng.3.master</object-name>
+		<property>/controls/engines/engine[2]/cutoff</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>-26</dep></entry>
+		</interpolation>
+		<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.34</x-m>
+			<y-m>0.000</y-m>
+			<z-m>-0.62</z-m>
+		</center>  
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.eng.4.master</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/engines/engine[3]/cutoff</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.eng.4.master</object-name>
+		<property>/controls/engines/engine[3]/cutoff</property>
+		<interpolation>
+			<entry><ind>1</ind><dep>0</dep></entry>
+			<entry><ind>0</ind><dep>-26</dep></entry>
+		</interpolation>
+		<axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.34</x-m>
+			<y-m>0.000</y-m>
+			<z-m>-0.62</z-m>
+		</center>  
+	</animation>
+	
+	<!-- ECAM Controls -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.eng</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("engine")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.bleed</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("bleed")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ed.press</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("cab_press")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.elac</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("elec_ac")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.apu</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("apu")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.cond</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("cond")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.hyd</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("hyd")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.eldc</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("elec_dc")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.fuel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("fuel")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.wheel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("wheel")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.fctl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.load("fctl")</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam.clear</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.clear();</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>cl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if(ecam.alerts.mode == 'CHECKLIST_MENU' or ecam.alerts.mode == 'CHECKLIST') {
+						ecam.alerts.mode = 'LIMIT';
+					} else {
+						ecam.alerts.mode = 'CHECKLIST_MENU';
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>check.l</object-name>
+		<object-name>check.r</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					ecam.alerts.check_item();
+				</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ecam.rcl_last</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.rcl_last();</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.rcl</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.recall();</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.up</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.alerts.scroll_up();</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd.dn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.alerts.scroll_down();</script>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>/sim/sound/switch</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sd</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.sd.showDlg();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- +++++++++++++++++++++++++++++++++++ -->
+	<!--Throttle-->
+	<!-- +++++++++++++++++++++++++++++++++++ -->
+	<!--1-->
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle_1</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<factor>-40</factor>
+		<center>
+			<x-m>-0.47763</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.60223</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<!--2-->
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle_2</object-name>
+		<object-name>throttle2_1</object-name>
+		<object-name>throttle2_2</object-name>
+		<property>controls/engines/engine[1]/throttle</property>
+		<factor>-40</factor>
+		<center>
+			<x-m>-0.47763</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.60223</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<!--3-->
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle_3</object-name>
+		<object-name>throttle3_1</object-name>
+		<object-name>throttle3_2</object-name>
+		<property>controls/engines/engine[2]/throttle</property>
+		<factor>-40</factor>
+		<center>
+			<x-m>-0.47763</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.60223</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<!--4-->
+	<animation>
+		<type>rotate</type>
+		<object-name>throttle_4</object-name>
+		<property>controls/engines/engine[3]/throttle</property>
+		<factor>-40</factor>
+		<center>
+			<x-m>-0.47763</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.60223</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+
+	<!-- Engine Reverse Thrust -->
+	
+	<!--Parking break--> 
+	<animation>
+		<type>rotate</type>
+		<object-name>brake_selector</object-name>
+		<property>controls/gear/brake-parking</property>
+		<factor> 90 </factor>
+		<center>
+			<x-m>-0.01763</x-m>
+			<y-m>-0.12528</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 0 </y>
+			<z> -1 </z>
+		</axis>
+	</animation>	
+	
+	<!-- Flaps lever -->
+	<animation>
+		<type>rotate</type>
+		<object-name>flapselector</object-name>
+		<property>controls/flight/flaps</property>
+		<factor>60</factor>
+		<offset-deg>-20</offset-deg>   		
+		<center>
+			<x-m>-0.13465</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.6402</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<!-- Speed brakes lever -->
+	<animation>
+		<type>rotate</type>
+		<object-name>speed_brake</object-name>
+		<property>controls/flight/spoilers</property>
+		<factor>60</factor>
+		<offset-deg>-20</offset-deg> 
+		<center>
+			<x-m>-0.14347</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.64096</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+</PropertyList>

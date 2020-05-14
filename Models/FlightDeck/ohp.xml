@@ -1,0 +1,3334 @@
+﻿<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the CC-BY-NC License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the CC-BY-NC License for theOmegaHangar version
+ 
+ Now GNU GPL
+ -->
+
+<PropertyList>
+	<path>fd_ohp.ac</path>
+	
+	<!-- Animations -->
+	
+	<!-- APU MASTER SW AND START -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.apu.master</object-name>
+		<property>/controls/APU/master-switch</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.apu.master</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/APU/master-switch</property>
+			</binding>
+			<binding>
+		        <command>property-toggle</command>
+		        <property>/sim/sound/switch</property>
+		    </binding>
+		    <binding>
+		    	<command>nasal</command>
+		    	<script>ecam.sd.load("apu");</script>
+		    </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.apu.start</object-name>
+		<property>/controls/APU/start-indicator</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.25</dep></entry>
+			<entry><ind>2</ind><dep>0.5</dep></entry>
+			<entry><ind>3</ind><dep>0.75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.apu.start</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/APU/start</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+    
+	<!-- ENGINE IGNITION -->
+
+	<animation>
+	   <type>pick</type>
+	  <object-name>knob.engstart</object-name>
+	  <action>
+	    <button>0</button>
+	    <button>3</button>
+	    <repeatable>false</repeatable>
+	    <binding>
+		<command>property-adjust</command>
+		<property>/controls/engines/ign-start</property>
+		<step>1</step>
+		<min>-1</min>
+		<max>1</max>
+		<wrap>false</wrap>
+	    </binding>
+	    <binding>
+		  <command>property-toggle</command>
+		  <property>/sim/sound/switch</property>
+	      </binding>
+	      <binding>
+		    	<command>nasal</command>
+		    	<script>
+		    		if(ecam.sd.active != "engine") {
+		    			ecam.sd.load("engine");
+		    		}
+		    	</script>
+		    </binding>
+	  </action>
+	  <action>
+	      <button>1</button>
+	      <button>4</button>
+	      <repeatable>false</repeatable>
+	      <binding>
+		  <command>property-adjust</command>
+		  <property>/controls/engines/ign-start</property>
+		  <step>-1</step>
+		  <min>-1</min>
+		  <max>1</max>
+		  <wrap>false</wrap>
+	    </binding>
+	    <binding>
+		<command>property-toggle</command>
+		<property>/sim/sound/switch</property>
+	    </binding>
+	  </action>
+	</animation>
+
+	<animation>
+	  <type>rotate</type>
+	  <object-name>knob.engstart</object-name>
+	  <property>/controls/engines/ign-start</property>
+	  <interpolation>
+		<entry><ind>1</ind><dep>-60</dep></entry>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>-1</ind><dep>60</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x1-m>-0.485</x1-m>
+		<y1-m>0.026</y1-m>
+		<z1-m>0.39</z1-m>
+		<x2-m>-0.475</x2-m>
+		<y2-m>0.026</y2-m>
+		<z2-m>0.36</z2-m>
+	  </axis>
+	</animation>
+	
+	
+	<!-- FUEL SYSTEM -->
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.crossfeed.1</object-name>
+		<property>/controls/fuel/crossfeed/pump-1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.crossfeed.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/crossfeed/pump-1</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.crossfeed.2</object-name>
+		<property>/controls/fuel/crossfeed/pump-2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.crossfeed.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/crossfeed/pump-2</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.crossfeed.3</object-name>
+		<property>/controls/fuel/crossfeed/pump-3</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.crossfeed.3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/crossfeed/pump-3</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.crossfeed.4</object-name>
+		<property>/controls/fuel/crossfeed/pump-4</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.crossfeed.4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/crossfeed/pump-4</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.outer.l.pump</object-name>
+		<property>/controls/fuel/l-outer-tk/pump</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.outer.l.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/l-outer-tk/pump</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.outer.r.pump</object-name>
+		<property>/controls/fuel/r-outer-tk/pump</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.outer.r.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/r-outer-tk/pump</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.mid.l.fwd.pump</object-name>
+		<property>/controls/fuel/l-mid-tk/pump-fwd</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.mid.l.fwd.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/l-mid-tk/pump-fwd</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.mid.r.fwd.pump</object-name>
+		<property>/controls/fuel/r-mid-tk/pump-fwd</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.mid.r.fwd.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/r-mid-tk/pump-fwd</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.mid.l.aft.pump</object-name>
+		<property>/controls/fuel/l-mid-tk/pump-aft</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.mid.l.aft.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/l-mid-tk/pump-aft</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.mid.r.aft.pump</object-name>
+		<property>/controls/fuel/r-mid-tk/pump-aft</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.mid.r.aft.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/r-mid-tk/pump-aft</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.inr.l.fwd.pump</object-name>
+		<property>/controls/fuel/l-inr-tk/pump-fwd</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.inr.l.fwd.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/l-inr-tk/pump-fwd</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.inr.r.fwd.pump</object-name>
+		<property>/controls/fuel/r-inr-tk/pump-fwd</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.inr.r.fwd.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/r-inr-tk/pump-fwd</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.inr.l.aft.pump</object-name>
+		<property>/controls/fuel/l-inr-tk/pump-aft</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.inr.l.aft.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/l-inr-tk/pump-aft</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.inr.r.aft.pump</object-name>
+		<property>/controls/fuel/r-inr-tk/pump-aft</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.inr.r.aft.pump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/r-inr-tk/pump-aft</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.outer.xfr</object-name>
+		<property>/controls/fuel/xfr/outer-tks</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.outer.xfr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/xfr/outer-tks</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.mid.xfr</object-name>
+		<property>/controls/fuel/xfr/mid-tks</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.mid.xfr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/xfr/mid-tks</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.inr.xfr</object-name>
+		<property>/controls/fuel/xfr/inr-tks</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.inr.xfr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/xfr/inr-tks</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.trim.l</object-name>
+		<property>/controls/fuel/trim-tk/pump-l</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.trim.l</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/trim-tk/pump-l</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.trim.r</object-name>
+		<property>/controls/fuel/trim-tk/pump-r</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.trim.r</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/trim-tk/pump-r</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.1.main</object-name>
+		<property>/consumables/fuel/tank/selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.1.main</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank/selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.1.stby</object-name>
+		<property>/consumables/fuel/tank/stby-selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.1.stby</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank/stby-selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.2.main</object-name>
+		<property>/consumables/fuel/tank[1]/selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.2.main</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank[1]/selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.2.stby</object-name>
+		<property>/consumables/fuel/tank[1]/stby-selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.2.stby</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank[1]/stby-selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.3.main</object-name>
+		<property>/consumables/fuel/tank[2]/selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.3.main</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank[2]/selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.3.stby</object-name>
+		<property>/consumables/fuel/tank[2]/stby-selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.3.stby</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank[2]/stby-selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.4.main</object-name>
+		<property>/consumables/fuel/tank[3]/selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.4.main</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank[3]/selected</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<!-- animation>
+		<type>textranslate</type>
+		<object-name>btn.fuel.feedtk.4.stby</object-name>
+		<property>/consumables/fuel/tank[3]/stby-selected</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fuel.feedtk.4.stby</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/consumables/fuel/tank[3]/stby-selected</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation -->
+	
+	<!-- ELEC System -->
+	<!-- Battery Controls -->
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.bat.1</object-name>
+		<property>/controls/electric/contact/batt_1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.bat.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/batt_1</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.bat.ess</object-name>
+		<property>/controls/electric/contact/ess_bat</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.bat.ess</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/ess_bat</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.bat.2</object-name>
+		<property>/controls/electric/contact/batt_2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.bat.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/batt_2</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.bat.apu</object-name>
+		<property>/controls/electric/contact/apu_bat</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.bat.apu</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/apu_bat</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.elmu</object-name>
+		<property>/controls/electric/contact/elmu</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.elmu</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/elmu</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.acessfeed</object-name>
+		<property>/controls/electric/contact/ac_ess_feed</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.acessfeed</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/ac_ess_feed</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- Shed Loads -->
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.paxsystem</object-name>
+		<property>/controls/electric/contact/pax_sys</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.paxsystem</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/pax_sys</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.galley</object-name>
+		<property>/controls/electric/contact/galley</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.galley</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/galley</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.commercial</object-name>
+		<property>/controls/electric/contact/commercial</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.commercial</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/commercial</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- External Power Supply -->
+
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.ext.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/external_1</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>texmultiple</type>
+		<object-name>btn.elec.ext.1</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/contact/external_1</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<x>1</x>
+			</axis>
+		</transform>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/ground/external_1</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<y>1</y>
+			</axis>
+		</transform>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.ext.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/external_2</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>texmultiple</type>
+		<object-name>btn.elec.ext.2</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/contact/external_2</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<x>1</x>
+			</axis>
+		</transform>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/ground/external_2</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<y>1</y>
+			</axis>
+		</transform>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.ext.3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/external_3</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>texmultiple</type>
+		<object-name>btn.elec.ext.3</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/contact/external_3</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<x>1</x>
+			</axis>
+		</transform>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/ground/external_3</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<y>1</y>
+			</axis>
+		</transform>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.ext.4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/external_4</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>texmultiple</type>
+		<object-name>btn.elec.ext.4</object-name>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/contact/external_4</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<x>1</x>
+			</axis>
+		</transform>
+		<transform>
+			<subtype>textranslate</subtype>
+			<property>/controls/electric/ground/external_4</property>
+			<interpolation>
+				<entry><ind>0</ind><dep>0</dep></entry>
+				<entry><ind>1</ind><dep>0.5</dep></entry>
+			</interpolation>
+			<axis>
+				<y>1</y>
+			</axis>
+		</transform>
+	</animation>
+	
+	<!-- I'm not exactly sure what the DRIVE GEN switches do -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.gen.1</object-name>
+		<property>/controls/electric/contact/engine_1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.gen.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/engine_1</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.gen.2</object-name>
+		<property>/controls/electric/contact/engine_2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.gen.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/engine_2</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.gen.3</object-name>
+		<property>/controls/electric/contact/engine_3</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.gen.3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/engine_3</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.gen.4</object-name>
+		<property>/controls/electric/contact/engine_4</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.gen.4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/engine_4</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.gen.apu.a</object-name>
+		<property>/controls/electric/contact/apu_gen-a</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.gen.apu.a</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/apu_gen-a</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.gen.apu.b</object-name>
+		<property>/controls/electric/contact/apu_gen-b</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.gen.apu.b</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/apu_gen-b</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.elec.bustie</object-name>
+		<property>/controls/electric/contact/bus_tie</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.elec.bustie</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/electric/contact/bus_tie</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- AIR COND System -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.pack.1</object-name>
+		<property>/controls/pressurization/pack[0]/pack-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.pack.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/pack[0]/pack-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hotair.1</object-name>
+		<property>/controls/pressurization/pack[0]/hotair-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hotair.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/pack[0]/hotair-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.pack.2</object-name>
+		<property>/controls/pressurization/pack[1]/pack-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.pack.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/pack[1]/pack-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hotair.2</object-name>
+		<property>/controls/pressurization/pack[1]/hotair-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hotair.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/pack[1]/hotair-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- Engine and APU Bleed -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.engbleed.1</object-name>
+		<property>/controls/pressurization/engine[0]/bleed-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.engbleed.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/engine[0]/bleed-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.engbleed.2</object-name>
+		<property>/controls/pressurization/engine[1]/bleed-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.engbleed.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/engine[1]/bleed-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.engbleed.3</object-name>
+		<property>/controls/pressurization/engine[2]/bleed-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.engbleed.3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/engine[2]/bleed-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.engbleed.4</object-name>
+		<property>/controls/pressurization/engine[3]/bleed-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.engbleed.4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/engine[3]/bleed-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.apubleed</object-name>
+		<property>/controls/pressurization/apu/bleed-on</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.apubleed</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/pressurization/apu/bleed-on</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- HYD System -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.1.a</object-name>
+		<property>/controls/hydraulics/engine/pump-a</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.1.a</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine/pump-a</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.1.b</object-name>
+		<property>/controls/hydraulics/engine/pump-b</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.1.b</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine/pump-b</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.2.a</object-name>
+		<property>/controls/hydraulics/engine[1]/pump-a</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.2.a</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[1]/pump-a</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.2.b</object-name>
+		<property>/controls/hydraulics/engine[1]/pump-b</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.2.b</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[1]/pump-b</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.3.a</object-name>
+		<property>/controls/hydraulics/engine[2]/pump-a</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.3.a</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[2]/pump-a</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.3.b</object-name>
+		<property>/controls/hydraulics/engine[2]/pump-b</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.3.b</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[2]/pump-b</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.4.a</object-name>
+		<property>/controls/hydraulics/engine[3]/pump-a</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.4.a</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[3]/pump-a</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.4.b</object-name>
+		<property>/controls/hydraulics/engine[3]/pump-b</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.4.b</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[3]/pump-b</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.1.ab</object-name>
+		<property>/controls/hydraulics/engine/pump-ab</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.1.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var engine = 0;
+				
+					var prot_open = getprop("/controls/hydraulics/engine["~engine~"]/prot-ab");
+					var value = getprop("/controls/hydraulics/engine["~engine~"]/pump-ab");
+					
+					if(prot_open) {
+						if(value) {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 0);
+						} else {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 1);
+						}
+					} else {
+						print("Open switch protector first!");
+					}
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.2.ab</object-name>
+		<property>/controls/hydraulics/engine[1]/pump-ab</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.2.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var engine = 1;
+				
+					var prot_open = getprop("/controls/hydraulics/engine["~engine~"]/prot-ab");
+					var value = getprop("/controls/hydraulics/engine["~engine~"]/pump-ab");
+					
+					if(prot_open) {
+						if(value) {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 0);
+						} else {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 1);
+						}
+					} else {
+						print("Open switch protector first!");
+					}
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.3.ab</object-name>
+		<property>/controls/hydraulics/engine[2]/pump-ab</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.3.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var engine = 2;
+				
+					var prot_open = getprop("/controls/hydraulics/engine["~engine~"]/prot-ab");
+					var value = getprop("/controls/hydraulics/engine["~engine~"]/pump-ab");
+					
+					if(prot_open) {
+						if(value) {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 0);
+						} else {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 1);
+						}
+					} else {
+						print("Open switch protector first!");
+					}
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.hyd.eng.4.ab</object-name>
+		<property>/controls/hydraulics/engine[3]/pump-ab</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.hyd.eng.4.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var engine = 3;
+				
+					var prot_open = getprop("/controls/hydraulics/engine["~engine~"]/prot-ab");
+					var value = getprop("/controls/hydraulics/engine["~engine~"]/pump-ab");
+					
+					if(prot_open) {
+						if(value) {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 0);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 0);
+						} else {
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-ab", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-a", 1);
+							setprop("/controls/hydraulics/engine["~engine~"]/pump-b", 1);
+						}
+					} else {
+						print("Open switch protector first!");
+					}
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+	  <type>rotate</type>
+	  <object-name>prot.hyd.eng.1.ab</object-name>
+	  <property>/controls/hydraulics/engine/prot-ab</property>
+	  <interpolation>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>1</ind><dep>-120</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	  </axis>
+	  <center>
+	  	<x-m>0.0148</x-m>
+	  	<y-m>0</y-m>
+	  	<z-m>0.5603</z-m>
+	  </center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>prot.hyd.eng.1.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine/prot-ab</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					settimer(func {
+						setprop("/controls/hydraulics/engine/prot-ab", 0);
+					}, 3);
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+	  <type>rotate</type>
+	  <object-name>prot.hyd.eng.2.ab</object-name>
+	  <property>/controls/hydraulics/engine[1]/prot-ab</property>
+	  <interpolation>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>1</ind><dep>-120</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	  </axis>
+	  <center>
+	  	<x-m>0.0148</x-m>
+	  	<y-m>0</y-m>
+	  	<z-m>0.5603</z-m>
+	  </center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>prot.hyd.eng.2.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[1]/prot-ab</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					settimer(func {
+						setprop("/controls/hydraulics/engine[1]/prot-ab", 0);
+					}, 3);
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+	  <type>rotate</type>
+	  <object-name>prot.hyd.eng.3.ab</object-name>
+	  <property>/controls/hydraulics/engine[2]/prot-ab</property>
+	  <interpolation>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>1</ind><dep>-120</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	  </axis>
+	  <center>
+	  	<x-m>0.0148</x-m>
+	  	<y-m>0</y-m>
+	  	<z-m>0.5603</z-m>
+	  </center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>prot.hyd.eng.3.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[2]/prot-ab</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					settimer(func {
+						setprop("/controls/hydraulics/engine[2]/prot-ab", 0);
+					}, 3);
+				</script>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	
+	<animation>
+	  <type>rotate</type>
+	  <object-name>prot.hyd.eng.4.ab</object-name>
+	  <property>/controls/hydraulics/engine[3]/prot-ab</property>
+	  <interpolation>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>1</ind><dep>-120</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	  </axis>
+	  <center>
+	  	<x-m>0.0148</x-m>
+	  	<y-m>0</y-m>
+	  	<z-m>0.5603</z-m>
+	  </center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>prot.hyd.eng.4.ab</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hydraulics/engine[3]/prot-ab</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					settimer(func {
+						setprop("/controls/hydraulics/engine[3]/prot-ab", 0);
+					}, 3);
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- Anti-ice -->
+	<animation>
+		<type>pick</type>
+		<object-name>btn.antiice.wing</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/wing-heat</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.antiice.wing</object-name>
+		<property>controls/anti-ice/wing-heat</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<!-- Engines Anti-ice -->
+	<animation>
+		<type>pick</type>
+		<object-name>btn.antiice.eng.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/engine[0]/inlet-heat</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.antiice.eng.1</object-name>
+		<property>controls/anti-ice/engine[0]/inlet-heat</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>btn.antiice.eng.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/engine[1]/inlet-heat</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.antiice.eng.2</object-name>
+		<property>controls/anti-ice/engine[1]/inlet-heat</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>btn.antiice.eng.3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/engine[2]/inlet-heat</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.antiice.eng.3</object-name>
+		<property>controls/anti-ice/engine[2]/inlet-heat</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>btn.antiice.eng.4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/anti-ice/engine[3]/inlet-heat</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.antiice.eng.4</object-name>
+		<property>controls/anti-ice/engine[3]/inlet-heat</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+		</axis>
+	</animation>
+	
+	<!-- External Lighting -->
+	<animation>
+		<type>pick</type>
+		<object-name>sw.strobe</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/strobe</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.strobe</object-name>
+		<property>controls/lighting/strobe</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.beacon</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/beacon</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.beacon</object-name>
+		<property>controls/lighting/beacon</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.nav</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/nav</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.nav</object-name>
+		<property>controls/lighting/nav</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.logo</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/logo</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.logo</object-name>
+		<property>controls/lighting/logo</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.wing</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/wing-lights</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.wing</object-name>
+		<property>controls/lighting/wing-lights</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5799</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3511</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.rwy</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/rwy</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.rwy</object-name>
+		<property>controls/lighting/rwy</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5799</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3511</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.land</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/landing-lights[0]</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.land</object-name>
+		<property>controls/lighting/landing-lights[0]</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5799</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3511</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.nose</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/nose</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.nose</object-name>
+		<property>controls/lighting/nose</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5799</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3511</z-m>
+		</center>
+	</animation>
+	
+	<!-- Internal Lighting -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.stbycompass</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/internal/stbycompass</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.stbycompass</object-name>
+		<property>controls/lighting/internal/stbycompass</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.storm</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/internal/storm</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.storm</object-name>
+		<property>controls/lighting/internal/storm</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.annlt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/internal/annlt</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.annlt</object-name>
+		<property>controls/lighting/internal/annlt</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5376</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3672</z-m>
+		</center>
+	</animation>
+	
+	<!-- Signs -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.seatbelt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/signs/seatbelt</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/switches/seatbelt-sign</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.seatbelt</object-name>
+		<property>controls/signs/seatbelt</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5799</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3511</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>sw.nosmoking</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/signs/no-smoking</property>
+			</binding>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/switches/seatbelt-sign</property>
+			</binding>
+			<binding>
+            	<command>property-toggle</command>
+            	<property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>sw.nosmoking</object-name>
+		<property>controls/signs/no-smoking</property>
+		<factor>-60</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.5799</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3511</z-m>
+		</center>
+	</animation>
+	
+	<!-- Jettison -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fueljettison.arm</object-name>
+		<property>/controls/fuel/jettison/arm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fueljettison.arm</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var prot_open = getprop("/controls/fuel/jettison/arm-prot");
+					var value = getprop("/controls/fuel/jettison/arm");
+					
+					if(prot_open) {
+						if(value) {
+							setprop("/controls/fuel/jettison/arm", 0);
+						} else {
+							setprop("/controls/fuel/jettison/arm", 1);
+						}
+					} else {
+						print("Open switch cage first!");
+					}
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+	  <type>rotate</type>
+	  <object-name>prot.fueljettison.arm</object-name>
+	  <property>/controls/fuel/jettison/arm-prot</property>
+	  <interpolation>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>1</ind><dep>-120</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	  </axis>
+	  <center>
+	  	<x-m>-0.1770</x-m>
+	  	<y-m>0</y-m>
+	  	<z-m>0.4914</z-m>
+	  </center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>prot.fueljettison.arm</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/jettison/arm-prot</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					settimer(func {
+						setprop("/controls/fuel/jettison/arm-prot", 0);
+					}, 3);
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.fueljettison.active</object-name>
+		<property>/controls/fuel/jettison/active</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.fueljettison.active</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var prot_open = getprop("/controls/fuel/jettison/active-prot");
+					var value = getprop("/controls/fuel/jettison/active");
+					
+					if(prot_open) {
+						if(value) {
+							setprop("/controls/fuel/jettison/active", 0);
+						} else {
+							setprop("/controls/fuel/jettison/active", 1);
+						}
+					} else {
+						print("Open switch cage first!");
+					}
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<animation>
+	  <type>rotate</type>
+	  <object-name>prot.fueljettison.active</object-name>
+	  <property>/controls/fuel/jettison/active-prot</property>
+	  <interpolation>
+		<entry><ind>0</ind><dep>0</dep></entry>
+		<entry><ind>1</ind><dep>-120</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>0</x>
+		<y>1</y>
+		<z>0</z>
+	  </axis>
+	  <center>
+	  	<x-m>-0.1770</x-m>
+	  	<y-m>0</y-m>
+	  	<z-m>0.4914</z-m>
+	  </center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>prot.fueljettison.active</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/fuel/jettison/active-prot</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					settimer(func {
+						setprop("/controls/fuel/jettison/active-prot", 0);
+					}, 3);
+				</script>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+              </binding>
+		</action>
+	</animation>
+	
+	<!-- Manual Engine Start Switches -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>eng.manstart.1</object-name>
+		<property>/controls/engines/engine[0]/starter</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>eng.manstart.1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/APU/master-switch</property>
+			</binding>
+			<binding>
+		        <command>property-toggle</command>
+		        <property>/sim/sound/switch</property>
+		    </binding>
+		    <binding>
+		    	<command>property-toggle</command>
+		        <property>/controls/engines/engine[0]/starter</property>
+		    </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>eng.manstart.2</object-name>
+		<property>/controls/engines/engine[1]/starter</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>eng.manstart.2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/APU/master-switch</property>
+			</binding>
+			<binding>
+		        <command>property-toggle</command>
+		        <property>/sim/sound/switch</property>
+		    </binding>
+		    <binding>
+		    	<command>property-toggle</command>
+		        <property>/controls/engines/engine[1]/starter</property>
+		    </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>eng.manstart.3</object-name>
+		<property>/controls/engines/engine[2]/starter</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>eng.manstart.3</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/APU/master-switch</property>
+			</binding>
+			<binding>
+		        <command>property-toggle</command>
+		        <property>/sim/sound/switch</property>
+		    </binding>
+		    <binding>
+		    	<command>property-toggle</command>
+		        <property>/controls/engines/engine[2]/starter</property>
+		    </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>eng.manstart.4</object-name>
+		<property>/controls/engines/engine[3]/starter</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>0.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>eng.manstart.4</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/APU/master-switch</property>
+			</binding>
+			<binding>
+		        <command>property-toggle</command>
+		        <property>/sim/sound/switch</property>
+		    </binding>
+		    <binding>
+		    	<command>property-toggle</command>
+		        <property>/controls/engines/engine[3]/starter</property>
+		    </binding>
+		</action>
+	</animation>
+	
+</PropertyList>

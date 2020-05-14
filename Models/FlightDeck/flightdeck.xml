@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Models, Textures and XMLs Copyright Tapaninen, Muraleedharan 2014
+ Distributed under the Creative commons BY-NC v3.0 License
+ -->
+
+<PropertyList>
+	<path>fd_shell.ac</path> 
+
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/fcu.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/glare.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/hud.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/inner.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/misc.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/ohp.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/panel.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/pedals.xml</path>
+	</model>
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/pedestal.xml</path>
+	</model>
+	
+	<!-- Instruments -->
+	
+	<model>
+		<path>Aircraft/A380-omega/Models/Instruments/PFD/PFD.xml</path>
+		<offsets>
+			<x-m>-0.8568</x-m>
+			<y-m>-0.51</y-m>
+			<z-m>-0.296</z-m>
+			<pitch-deg>-16</pitch-deg>
+		</offsets>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</model>
+	
+	<!-- model>
+		<path>Aircraft/A380-omega/Models/Instruments/ND/old/ND.xml</path>
+		<offsets>
+			<x-m>-0.8568</x-m>
+			<y-m>-0.322</y-m>
+			<z-m>-0.295</z-m>
+			<pitch-deg>-16</pitch-deg>
+		</offsets>
+		<condition>
+			<property>/systems/electric/outputs/efis</property>
+		</condition>
+	</model -->
+	
+	<model>
+		<path>Aircraft/A380-omega/Models/Instruments/PFD/PFD.xml</path>
+		<offsets>
+			<x-m>-0.8568</x-m>
+			<y-m> 0.57</y-m>
+			<z-m>-0.296</z-m>
+			<pitch-deg>-16</pitch-deg>
+		</offsets>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</model>
+	
+	<!-- model>
+		<path>Aircraft/A380-omega/Models/Instruments/ND/old2/ND.xml</path>
+		<offsets>
+			<x-m>-0.8568</x-m>
+			<y-m> 0.382</y-m>
+			<z-m>-0.295</z-m>
+			<pitch-deg>-16</pitch-deg>
+		</offsets>
+		<condition>
+			<property>/systems/electric/outputs/efis</property>
+		</condition>
+	</model -->
+	
+	<model>
+		<path>Aircraft/A380-omega/Models/FlightDeck/brk.xml</path>
+		<offsets>
+			<x-m>-0.09</x-m>
+			<y-m>0</y-m>
+			<z-m>0.222</z-m>
+			<pitch-deg>-15</pitch-deg>
+		</offsets>
+	</model>
+
+</PropertyList>

@@ -1,0 +1,82 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+
+<PropertyList>
+	<path>fd_pedals.ac</path>
+	
+	<!-- Animations -->
+	<!--Pedals-->
+	<!--Breaks-->
+	<animation>
+		<type>rotate</type>
+		<object-name>pedalL_R</object-name>
+		<object-name>pedalR_R</object-name>
+		<property>controls/gear/brake-right</property>
+		<factor>-20</factor>
+		<center>
+			<x-m>-1.08936</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.84545</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>pedalL_L</object-name>
+		<object-name>pedalR_L</object-name>
+		<property>controls/gear/brake-left</property>
+		<factor>-20</factor>
+		<center>
+			<x-m>-1.08936</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.84545</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<!--Rudder-->
+	<!--Left foot pedals-->
+	<animation>
+		<type>translate</type>
+		<object-name>pedalL_L</object-name>
+		<object-name>pedalR_L</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>0.10</factor>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	
+	<!--Right foot pedals-->
+	<animation>
+		<type>translate</type>
+		<object-name>pedalL_R</object-name>
+		<object-name>pedalR_R</object-name>
+		<property>controls/flight/rudder</property>
+		<factor>-0.10</factor>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>	
+	
+</PropertyList>

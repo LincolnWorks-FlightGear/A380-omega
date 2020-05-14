@@ -1,0 +1,3391 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+
+<PropertyList>
+	<path>fd_fcu.ac</path>
+	
+	<!-- Animations -->
+	<!-- FCU Screen Power On -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd-text</object-name>
+		<object-name>mach-text</object-name>
+		<object-name>hdg-text</object-name>
+		<object-name>alt-text</object-name>
+		<object-name>vs-text</object-name>
+		<object-name>fpa-text</object-name>
+		<object-name>qnh-inhg</object-name>
+		<object-name>rudder-trim</object-name>
+		<object-name>acp_selmhz</object-name>
+		<object-name>acp_stbymhz</object-name>
+		<object-name>baro.value.inhg</object-name>
+		<object-name>baro.value.hpa</object-name>
+		<object-name>baro.value.std</object-name>
+		<object-name>efis_text</object-name>
+		<object-name>efis.l.ind.lmode</object-name>
+		<object-name>efis.l.ind.rmode</object-name>
+		<object-name>efis.r.ind.lmode</object-name>
+		<object-name>efis.r.ind.rmode</object-name>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>fcu_backlight</object-name>
+		<diffuse>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/systems/electric/outputs/avionics</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>fcu_backlight</object-name>
+		<diffuse>
+			<red>0.5</red>
+			<green>0.5</green>
+			<blue>0.5</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<equals>
+				<property>/systems/electric/outputs/avionics</property>
+				<value>0</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- OSGText -->
+	
+	<!-- Show Text only in MAN-SET modes -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>ias</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mach-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>mach</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>hdg-text</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>alt-text</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>man-set</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vs-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/ver-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/ver-sub</property>
+					<value>vs</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fpa-text</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/ver-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/ver-sub</property>
+					<value>fpa</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- Material Animation -->
+	
+	<animation>
+		<type>material</type>
+		<object-name>spd-text</object-name>
+		<object-name>mach-text</object-name>
+		<object-name>hdg-text</object-name>
+		<object-name>alt-text</object-name>
+		<object-name>vs-text</object-name>
+		<object-name>fpa-text</object-name>
+		<object-name>qnh-inhg</object-name>
+		<object-name>rudder-trim</object-name>
+		<object-name>acp_stbymhz</object-name>
+		<object-name>acp_selmhz</object-name>
+		<object-name>baro.value.inhg</object-name>
+		<object-name>baro.value.hpa</object-name>
+		<object-name>baro.value.std</object-name>
+		<diffuse>
+			<red>0.74</red>
+			<green>0.80</green>
+			<blue>0.98</blue>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>0.75</red>
+			<green>0.80</green>
+			<blue>0.98</blue>
+		</emission>
+	</animation>
+	
+	<!-- Actual Text -->
+	
+	<text>
+		<name>spd-text</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>-0.0668</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%3.0f</format>
+		<property>/flight-management/fcu-values/ias</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>mach-text</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>-0.0668</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%1.2f</format>
+		<property>/flight-management/fcu-values/mach</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>hdg-text</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>-0.0183</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">text-value</type>
+		<format type="string">%s</format>
+		<property>/flight-management/fcu-values/hdg-disp</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>alt-text</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>0.0750</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%5.0f</format>
+		<property>/flight-management/fcu-values/alt</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>vs-text</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>0.1244</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>/flight-management/fcu-values/vs</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>fpa-text</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>0.1244</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>/flight-management/fcu-values/fpa</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>	
+	
+	<text>
+	  <name>baro.value.hpa</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>-0.2607</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>/instrumentation/altimeter/setting-hpa</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+  </text>
+  
+    <text>
+    <name>baro.value.inhg</name>
+	<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>-0.2607</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.2f</format>
+		<property>/instrumentation/altimeter/setting-inhg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+  </text>
+  
+  <text>
+	<name>baro.value.std</name>
+    <offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>-0.2607</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+	    <type>literal</type>
+    <text type="string">Std</text>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+	<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+  </text>
+  
+  <!-- First Officer-->
+  
+   <text>
+    <name>baro.value.hpa</name>
+		<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>0.3153</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%4.0f</format>
+		<property>/instrumentation/altimeter/setting-hpa</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+  </text>
+  
+   <text>
+    <name>baro.value.inhg</name>
+	<offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>0.3153</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.2f</format>
+		<property>/instrumentation/altimeter/setting-inhg</property>
+		<truncate type="bool">false</truncate>
+		<font type="string">led.txf</font>
+		<draw-text type="bool">true</draw-text>
+		<draw-alignment type="bool">false</draw-alignment>
+		<draw-boundingbox type="bool">false</draw-boundingbox>
+		<character-size>0.009</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+  </text>
+  
+  <text>
+	<name>baro.value.std</name>
+    <offsets>
+			<x-m>-0.7153</x-m>
+			<y-m>0.3153</y-m>
+			<z-m>0.0028</z-m>
+			<heading-deg>90</heading-deg>
+			<roll-deg>76</roll-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>xy-plane</axis-alignment>
+	    <type>literal</type>
+    <text type="string">Std</text>
+    <font>led.txf</font>
+    <character-size type="double">0.009</character-size>
+	<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+  </text>
+  
+  <animation>
+    <type>select</type>
+    <object-name>baro.value.hpa</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>/instrumentation/efis/baro-mode</property>
+          <value>1</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/efis/baro-std-mode</property>
+          <value>0</value>
+        </equals>
+        <property>/systems/electric/outputs/avionics</property>
+      </and>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>baro.value.inhg</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>/instrumentation/efis/baro-mode</property>
+          <value>0</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/efis/baro-std-mode</property>
+          <value>0</value>
+        </equals>
+        <property>/systems/electric/outputs/avionics</property>
+      </and>
+    </condition>
+  </animation>
+  
+  <animation>
+    <type>select</type>
+    <object-name>baro.value.std</object-name>
+    <condition>
+        <equals>
+          <property>/instrumentation/efis/baro-std-mode</property>
+          <value>1</value>
+        </equals>
+		<property>/systems/electric/outputs/avionics</property>
+    </condition>
+  </animation>
+  
+  <!-- FCU Knobs -->
+  
+  <!-- Knobs' Pick Animations -->
+	
+	<!-- IMPORTANT - USE SCROLL WHEEL ON MOUSE OF TOUCH PAD EDGE TO SCROLL, AND CLICK TO SELECT -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>spd-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var spd_mode = getprop("/flight-management/control/spd-mode");
+					
+					if (spd_mode == "ias") {
+					
+						var ias = getprop("/flight-management/fcu-values/ias");
+						
+						if (350 > ias)
+							setprop("/flight-management/fcu-values/ias", ias + 1);
+					
+					} else {
+					
+						var mach = getprop("/flight-management/fcu-values/mach");
+						
+						if (0.89 > mach)
+							setprop("/flight-management/fcu-values/mach", mach + 0.01);
+					
+					}
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var spd_mode = getprop("/flight-management/control/spd-mode");
+					
+					if (spd_mode == "ias") {
+					
+						var ias = getprop("/flight-management/fcu-values/ias");
+						
+						if (ias > 0)
+							setprop("/flight-management/fcu-values/ias", ias - 1);
+					
+					} else {
+					
+						var mach = getprop("/flight-management/fcu-values/mach");
+						
+						if (mach > 0)
+							setprop("/flight-management/fcu-values/mach", mach - 0.01);
+					
+					}
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/spd-ctrl</property>
+				<value>man-set</value>
+				<value>fmgc</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>hdg-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var hdg_prop = "/flight-management/fcu-values/hdg";
+				
+					if (359 > getprop(hdg_prop))
+						setprop(hdg_prop, getprop(hdg_prop) + 1);
+					else
+						setprop(hdg_prop, 0);
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var hdg_prop = "/flight-management/fcu-values/hdg";
+				
+					if (getprop(hdg_prop) > 0)
+						setprop(hdg_prop, getprop(hdg_prop) - 1);
+					else
+						setprop(hdg_prop, 359);
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>man-set</value>
+				<value>fmgc</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>alt-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var step = getprop("/flight-management/control/alt-sel-mode");
+				
+					var alt_prop = "/flight-management/fcu-values/alt";
+				
+					if (43000 > getprop(alt_prop))
+						setprop(alt_prop, getprop(alt_prop) + step);
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var step = getprop("/flight-management/control/alt-sel-mode");
+					
+					var alt_prop = "/flight-management/fcu-values/alt";
+				
+					if (getprop(alt_prop) > 0)
+						setprop(alt_prop, getprop(alt_prop) - step);
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var ver_ctrl = getprop("/flight-management/control/ver-ctrl");
+					var ver_mode = getprop("/flight-management/control/ver-mode");
+					
+					if(ver_ctrl == "man-set") {
+						if(ver_mode == "alt-hold") {
+							setprop("/flight-management/control/ver-mode", "alt");
+						} else {
+							setprop("/flight-management/control/ver-ctrl", "fmgc");
+						}
+					} else {
+						setprop("/flight-management/control/ver-ctrl", "man-set");
+						setprop("/flight-management/control/ver-mode", "alt");
+					}
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vs-sel</object-name>
+		<action>
+			<button>3</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					var sub_mode = getprop("/flight-management/control/ver-sub");
+				
+					var vs_prop = "/flight-management/fcu-values/vs";
+					
+					var fpa_prop = "/flight-management/fcu-values/fpa";
+				
+					if (sub_mode == "vs") {
+					
+						if (3000 > getprop(vs_prop))
+							setprop(vs_prop, getprop(vs_prop) + 100);
+					
+					} else {
+					
+						if (15 > getprop(fpa_prop))
+							setprop(fpa_prop, getprop(fpa_prop) + 1);
+					
+					}
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable type="bool">true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					
+					var sub_mode = getprop("/flight-management/control/ver-sub");
+				
+					var vs_prop = "/flight-management/fcu-values/vs";
+					
+					var fpa_prop = "/flight-management/fcu-values/fpa";
+				
+					if (sub_mode == "vs") {
+					
+						if (getprop(vs_prop) > -2500)
+							setprop(vs_prop, getprop(vs_prop) - 100);
+					
+					} else {
+					
+						if (getprop(fpa_prop) > -10)
+							setprop(fpa_prop, getprop(fpa_prop) - 1);
+					
+					}
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<!-- action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/vs-ctrl</property>
+				<value>fmgc</value>
+				<value>man-set</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action -->
+	</animation>
+	
+	<!-- Button Pick Animations -->
+	
+	<animation>
+		<type>pick</type>
+		<object-name>loc</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+					if (getprop("/flight-management/control/lat-mode") != "nav1") {
+				
+						setprop("/flight-management/control/lat-mode", "nav1");
+	
+						setprop("/flight-management/control/lat-ctrl", "man-set");
+						
+					} else
+					
+						setprop("/flight-management/control/lat-mode", "hdg");
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>gs</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+				if (getprop("/flight-management/control/ver-mode") != "ils") {
+				
+					setprop("/flight-management/control/ver-mode", "ils");
+	
+					setprop("/flight-management/control/ver-ctrl", "man-set");
+				
+				} else
+				
+					setprop("/flight-management/control/ver-mode", "alt");
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>alt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+				
+				if (getprop("/flight-management/control/ver-mode") != "alt-hold") {
+				
+					setprop("/flight-management/fmgc-values/alt-hold-ft", getprop("/instrumentation/altimeter/indicated-altitude-ft"));
+				
+					setprop("/flight-management/control/ver-mode", "alt-hold");
+	
+					setprop("/flight-management/control/ver-ctrl", "man-set");
+				
+				} else {
+				
+					setprop("/flight-management/control/ver-mode", "alt");
+				
+				}
+					
+				</script>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>spd-mach</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/spd-mode</property>
+				<value>mach</value>
+				<value>ias</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vs-fpa</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ver-sub</property>
+				<value>fpa</value>
+				<value>vs</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>alt-sel-mode</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/alt-sel-mode</property>
+				<value>1000</value>
+				<value>100</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ap1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ap1-master</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ap2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/ap2-master</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>fd</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/fd</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	
+	
+	<animation>
+		<type>pick</type>
+		<object-name>a-thr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/flight-management/control/a-thrust</property>
+				<value>eng</value>
+				<value>off</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<!-- Flight Control Unit Animations -->
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd.ind</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>ias</value>
+				</equals>
+				<property>/systems/electric/outputs/avionics</property>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>mach.ind</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>/flight-management/control/spd-ctrl</property>
+					<value>man-set</value>
+				</equals>
+				<equals>
+					<property>/flight-management/control/spd-mode</property>
+					<value>mach</value>
+				</equals>
+				<property>/systems/electric/outputs/avionics</property>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>spd.fmgc</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/spd-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lat.fmgc</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/lat-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ver.fmgc</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-ctrl</property>
+				<value>fmgc</value>
+			</equals>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>alt.ind</object-name>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>hdg.ind.001</object-name>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>vs.ind</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-sub</property>
+				<value>vs</value>
+			</equals>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>fpa.ind</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/control/ver-sub</property>
+				<value>fpa</value>
+			</equals>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>lvlch.ind</object-name>
+		<condition>
+			<equals>
+				<property>/flight-management/fcu/level_ch</property>
+				<value>1</value>
+			</equals>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<!-- FD, ALT, AP1, AP2, LOC, APPR and A-THR Indicator Textranslate -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fd</object-name>
+		<property>/flight-management/control/fcu/fd</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>alt</object-name>
+		<property>/flight-management/control/fcu/alt</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ap1</object-name>
+		<property>/flight-management/control/fcu/ap1</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ap2</object-name>
+		<property>/flight-management/control/fcu/ap2</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>a-thr</object-name>
+		<property>/flight-management/control/fcu/a-thrust</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>loc</object-name>
+		<property>/flight-management/control/fcu/nav1</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>gs</object-name>
+		<property>/flight-management/control/fcu/ils</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<!-- Knobs Rotate -->
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>hdg-sel</object-name>
+		<property>/flight-management/fcu-values/hdg</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.6859</x1-m>
+			<y1-m>-0.0170</y1-m>
+			<z1-m>-0.0188</z1-m>
+			<x2-m>-0.7048</x2-m>
+			<y2-m>-0.0170</y2-m>
+			<z2-m>-0.0242</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>spd-sel</object-name>
+		<property>/flight-management/fcu-values/spd-knob</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.6859</x1-m>
+			<y1-m>-0.0660</y1-m>
+			<z1-m>-0.0188</z1-m>
+			<x2-m>-0.7048</x2-m>
+			<y2-m>-0.0660</y2-m>
+			<z2-m>-0.0242</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>alt-sel</object-name>
+		<property>/flight-management/fcu-values/alt</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.6850</x1-m>
+			<y1-m>0.0760</y1-m>
+			<z1-m>-0.0182</z1-m>
+			<x2-m>-0.6973</x2-m>
+			<y2-m>0.0760</y2-m>
+			<z2-m>-0.0217</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>vs-sel</object-name>
+		<property>/flight-management/fcu-values/vs-knob</property>
+		<factor>11.25</factor>
+		<axis>
+			<x1-m>-0.6910</x1-m>
+			<y1-m>0.1255</y1-m>
+			<z1-m>-0.0202</z1-m>
+			<x2-m>-0.7016</x2-m>
+			<y2-m>0.1255</y2-m>
+			<z2-m>-0.0233</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>alt-sel-mode</object-name>
+		<property>/flight-management/control/alt-sel-mode</property>
+		<interpolation>
+			<entry><ind>100</ind><dep>0</dep></entry>
+			<entry><ind>1000</ind><dep>60</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.6850</x1-m>
+			<y1-m>0.0760</y1-m>
+			<z1-m>-0.0182</z1-m>
+			<x2-m>-0.6973</x2-m>
+			<y2-m>0.0760</y2-m>
+			<z2-m>-0.0217</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- EFIS Animations -->
+	
+	<!-- Captain's side EFIS Controls -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.taxi</object-name>
+		<property>/instrumentation/efis/inputs/taxi</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.taxi</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/taxi</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.cstr</object-name>
+		<property>/instrumentation/efis/inputs/cstr</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.cstr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/cstr</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.wpt</object-name>
+		<property>/instrumentation/efis/inputs/wpt</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.wpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/wpt</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.vord</object-name>
+		<property>/instrumentation/efis/inputs/vord</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.vord</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/vord</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.ndb</object-name>
+		<property>/instrumentation/efis/inputs/ndb</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.ndb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/ndb</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.arpt</object-name>
+		<property>/instrumentation/efis/inputs/arpt</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.arpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/arpt</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.wx</object-name>
+		<property>/instrumentation/efis/inputs/wx</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.wx</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/wx</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.terr</object-name>
+		<property>/instrumentation/efis/inputs/terr</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.terr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/terr</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.traf</object-name>
+		<property>/instrumentation/efis/inputs/traf</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.traf</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/traf</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.vord</object-name>
+		<property>/instrumentation/efis/inputs/vord</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.vord</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/vord</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.ndb</object-name>
+		<property>/instrumentation/efis/inputs/ndb</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.ndb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/ndb</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.ind.lmode</object-name>
+		<property>/instrumentation/efis/inputs/lh-vor-adf</property>
+		<factor>0.33</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.lmode</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/inputs/lh-vor-adf</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.ind.rmode</object-name>
+		<property>/instrumentation/efis/inputs/rh-vor-adf</property>
+		<factor>0.33</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.rmode</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/inputs/rh-vor-adf</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.ls</object-name>
+		<property>/instrumentation/efis/inputs/ls</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.ls</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/ls</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.l.w</object-name>
+		<property>/instrumentation/efis/inputs/vv</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.w</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis/inputs/vv</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.modeknob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+				<value>ILS</value>
+				<value>VOR</value>
+				<value>NAV</value>
+				<value>ARC</value>
+				<value>PLAN</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+				<value>PLAN</value>
+				<value>ARC</value>
+				<value>NAV</value>
+				<value>VOR</value>
+				<value>ILS</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.mode.ils</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+					<value>ILS</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.mode.vor</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+					<value>VOR</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.mode.nav</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+					<value>NAV</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.mode.arc</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+					<value>ARC</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.mode.plan</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/mfd/airbus-display-mode</property>
+					<value>PLAN</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>efis.l.rangeknob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/inputs/range-nm</property>
+				<value>2</value>
+				<value>10</value>
+				<value>20</value>
+				<value>40</value>
+				<value>80</value>
+				<value>160</value>
+				<value>320</value>
+				<value>640</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis/inputs/range-nm</property>
+				<value>640</value>
+				<value>320</value>
+				<value>160</value>
+				<value>80</value>
+				<value>40</value>
+				<value>20</value>
+				<value>10</value>
+				<value>2</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.zoom</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>2</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.10</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>10</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.20</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>20</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.40</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>40</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.80</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>80</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.160</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>160</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.320</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>320</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.l.range.640</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis/inputs/range-nm</property>
+					<value>640</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- First Officer's Side EFIS Controls -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.taxi</object-name>
+		<property>/instrumentation/efis[1]/inputs/taxi</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.taxi</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/taxi</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.cstr</object-name>
+		<property>/instrumentation/efis[1]/inputs/cstr</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.cstr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/cstr</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.wpt</object-name>
+		<property>/instrumentation/efis[1]/inputs/wpt</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.wpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/wpt</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.vord</object-name>
+		<property>/instrumentation/efis[1]/inputs/vord</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.vord</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/vord</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.ndb</object-name>
+		<property>/instrumentation/efis[1]/inputs/ndb</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.ndb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/ndb</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.arpt</object-name>
+		<property>/instrumentation/efis[1]/inputs/arpt</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.arpt</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/arpt</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.wx</object-name>
+		<property>/instrumentation/efis[1]/inputs/wx</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.wx</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/wx</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.terr</object-name>
+		<property>/instrumentation/efis[1]/inputs/terr</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.terr</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/terr</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.traf</object-name>
+		<property>/instrumentation/efis[1]/inputs/traf</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.traf</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/traf</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.vord</object-name>
+		<property>/instrumentation/efis[1]/inputs/vord</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.vord</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/vord</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.ndb</object-name>
+		<property>/instrumentation/efis[1]/inputs/ndb</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.ndb</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/ndb</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.ind.lmode</object-name>
+		<property>/instrumentation/efis[1]/inputs/lh-vor-adf</property>
+		<factor>0.33</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.lmode</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[1]/inputs/lh-vor-adf</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.ind.rmode</object-name>
+		<property>/instrumentation/efis[1]/inputs/rh-vor-adf</property>
+		<factor>0.33</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.rmode</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[1]/inputs/rh-vor-adf</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.ls</object-name>
+		<property>/instrumentation/efis[1]/inputs/ls</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.ls</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/ls</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>efis.r.w</object-name>
+		<property>/instrumentation/efis[1]/inputs/vv</property>
+		<factor>0.5</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.w</object-name>
+		<action>
+			<button>0</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/instrumentation/efis[1]/inputs/vv</property>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.modeknob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+				<value>ILS</value>
+				<value>VOR</value>
+				<value>NAV</value>
+				<value>ARC</value>
+				<value>PLAN</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+				<value>PLAN</value>
+				<value>ARC</value>
+				<value>NAV</value>
+				<value>VOR</value>
+				<value>ILS</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.mode.ils</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+					<value>ILS</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.mode.vor</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+					<value>VOR</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.mode.nav</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+					<value>NAV</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.mode.arc</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+					<value>ARC</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.mode.plan</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/mfd/airbus-display-mode</property>
+					<value>PLAN</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>efis.r.rangeknob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[1]/inputs/range-nm</property>
+				<value>2</value>
+				<value>10</value>
+				<value>20</value>
+				<value>40</value>
+				<value>80</value>
+				<value>160</value>
+				<value>320</value>
+				<value>640</value>
+			</binding>
+			<binding>
+		          <command>property-toggle</command>
+		          <property>/sim/sound/switch</property>
+		      </binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable type="bool">false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/instrumentation/efis[1]/inputs/range-nm</property>
+				<value>640</value>
+				<value>320</value>
+				<value>160</value>
+				<value>80</value>
+				<value>40</value>
+				<value>20</value>
+				<value>10</value>
+				<value>2</value>
+			</binding>
+			<binding>
+		        <command>property-toggle</command>
+		        <property>/sim/sound/switch</property>
+		    </binding>
+		</action>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.zoom</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>2</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.10</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>10</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.20</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>20</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.40</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>40</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.80</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>80</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.160</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>160</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.320</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>320</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>efis.r.range.640</object-name>
+		<diffuse>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</diffuse>
+		<emission>
+			<red>0</red>
+			<green>0.75</green>
+			<blue>0</blue>
+		</emission>
+		<condition>
+			<and>
+				<equals>
+					<property>/systems/electric/outputs/avionics</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/instrumentation/efis[1]/inputs/range-nm</property>
+					<value>640</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- Altimeter Setting -->
+	
+	<animation>
+    <type>pick</type>
+    <object-name>efis.l.baro.mode</object-name>
+    <action>
+        <button>0</button>
+			<binding>
+			  <command>property-toggle</command>
+			  <property>/instrumentation/efis/baro-mode</property>
+			</binding> 
+      </action>
+  </animation>
+  <animation>
+		<type>rotate</type>
+		<object-name>efis.l.baro.mode</object-name>
+		<property>/instrumentation/efis/baro-mode</property>
+		<factor>45</factor>
+		<axis>
+			<x1-m>-0.6808</x1-m>
+			<y1-m>-0.2605</y1-m>
+			<z1-m>-0.0141</z1-m>
+			<x2-m>-0.6953</x2-m>
+			<y2-m>-0.2605</y2-m>
+			<z2-m>-0.0182</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>efis.r.baro.mode</object-name>
+		<property>/instrumentation/efis/baro-mode</property>
+		<factor>45</factor>
+		<axis>
+			<x1-m>-0.6808</x1-m>
+			<y1-m> 0.3159</y1-m>
+			<z1-m>-0.0141</z1-m>
+			<x2-m>-0.6953</x2-m>
+			<y2-m> 0.3159</y2-m>
+			<z2-m>-0.0182</z2-m>
+		</axis>
+	</animation>
+	
+	 <!-- Adjust altimeter - not in std mode -->	
+  <animation>
+    
+    <type>pick</type>
+    <object-name>efis.l.baro.knob</object-name>
+    <object-name>efis.r.baro.knob</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+	  <condition>
+      <equals>
+        <property>/instrumentation/efis/baro-std-mode</property>
+        <value>0</value>
+      </equals>
+    </condition>
+       <command>property-adjust</command>
+	<property>/instrumentation/altimeter/setting-inhg</property>
+	<step>0.01</step>
+	<max>40.00</max>
+	<min>0.00</min>
+      </binding>
+      <binding>
+	        <command>property-toggle</command>
+	        <property>/sim/sound/switch</property>
+	    </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+	  <condition>
+      <equals>
+        <property>/instrumentation/efis/baro-std-mode</property>
+        <value>0</value>
+      </equals>
+    </condition>
+        <command>property-adjust</command>
+	<property>/instrumentation/altimeter/setting-inhg</property>
+	<step>-0.01</step>
+	<max>40.00</max>
+	<min>0.00</min>
+      </binding>
+      <binding>
+	        <command>property-toggle</command>
+	        <property>/sim/sound/switch</property>
+	    </binding>
+    </action>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/efis/baro-std-mode</property>
+      </binding>
+	  <binding>
+				<condition>
+					<property>/instrumentation/efis/baro-std-mode</property>
+					<value>1</value>
+				</condition>
+                <command>property-assign</command>
+                <property>instrumentation/efis/inhg-previous</property>
+                <property>instrumentation/altimeter/setting-inhg</property>
+            </binding>
+			<binding>
+				<condition>
+					<property>instrumentation/efis/baro-std-mode</property>
+				</condition>
+                <command>property-assign</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<value>29.92</value>
+            </binding>
+			<binding>
+				<condition>
+					<not><property>instrumentation/efis/baro-std-mode</property>
+					<value>1</value>
+					</not>
+				</condition>
+                <command>property-assign</command>
+                <property>instrumentation/altimeter/setting-inhg</property>
+                <property>instrumentation/efis/inhg-previous</property>
+            </binding>
+    </action>
+    <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/efis/baro-std-mode</property>
+      </binding>
+  </animation>
+  <animation>
+		<type>rotate</type>
+		<object-name>efis.l.baro.knob</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>15</factor>
+		<axis>
+			<x1-m>-0.6808</x1-m>
+			<y1-m>-0.2605</y1-m>
+			<z1-m>-0.0141</z1-m>
+			<x2-m>-0.6953</x2-m>
+			<y2-m>-0.2605</y2-m>
+			<z2-m>-0.0182</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>efis.r.baro.knob</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>15</factor>
+		<axis>
+			<x1-m>-0.6808</x1-m>
+			<y1-m> 0.3159</y1-m>
+			<z1-m>-0.0141</z1-m>
+			<x2-m>-0.6953</x2-m>
+			<y2-m> 0.3159</y2-m>
+			<z2-m>-0.0182</z2-m>
+		</axis>
+	</animation>
+	
+</PropertyList>

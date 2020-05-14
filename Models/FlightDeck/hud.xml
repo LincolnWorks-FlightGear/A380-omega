@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+
+<PropertyList>
+	<path>fd_hud.ac</path>
+	
+	<!-- Animations -->
+	<!-- Stow -->
+	<animation>
+		<type>rotate</type>
+		<object-name>hud_movable</object-name>
+		<property>/controls/hud/stow</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-120</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.3490</x-m>
+			<y-m>0</y-m>
+			<z-m>0.3931</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>hud_clickable</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/hud/stow</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	
+	<animation>
+        <type>select</type>
+        <object-name>hud.l</object-name>
+        <object-name>hud.r</object-name>
+        <condition>
+            <equals>
+                <property>systems/electric/outputs/avionics</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>hud.l</object-name>
+		<object-name>hud.r</object-name>
+		<object-name>hud.screen</object-name>
+	</effect>
+	
+</PropertyList>

@@ -1,0 +1,301 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+<PropertyList>
+	<path>fd_inner.ac</path>
+	
+	<!-- Animations -->
+	
+	<!-- +++++++++++++++++++++++++++++++++++ -->
+	<!--Sidesticks-->
+	<!-- +++++++++++++++++++++++++++++++++++ -->
+	<!--Left stick--> 
+	<!--Aileron-->
+
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_1</object-name>
+		<object-name>sidestickL_2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -20 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_3</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -10 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_4</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_5</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -2.5 </factor>
+		<center>
+			<x-m>-7.81484</x-m>
+			<y-m>-0.8755</y-m>
+			<z-m>-0.34743</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+
+	<!--Elevator-->
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_1</object-name>
+		<object-name>sidestickL_2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -20 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_3</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -10 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_4</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickL_5</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -2.5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>-0.82704</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	 
+	<!--Right stick--> 
+	<!--Aileron-->
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_1</object-name>
+		<object-name>sidestickR_2</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -20 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_3</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -10 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_4</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_5</object-name>
+		<property>controls/flight/aileron</property>
+		<factor> -2.5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+
+	<!--Elevator-->
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_1</object-name>
+		<object-name>sidestickR_2</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -20 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	</animation>
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_3</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -10 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>	
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_4</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+	 
+	<animation>
+		<type>rotate</type>
+		<object-name>sidestickR_5</object-name>
+		<property>controls/flight/elevator</property>
+		<factor> -2.5 </factor>
+		<center>
+			<x-m>-0.52069</x-m>
+			<y-m>0.88371</y-m>
+			<z-m>-0.48553</z-m>
+		</center>
+		<axis>
+			<x> 0 </x>
+			<y> 1 </y>
+			<z> 0 </z>
+		</axis>
+	 </animation>
+	
+</PropertyList>

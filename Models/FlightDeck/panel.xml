@@ -1,0 +1,331 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+
+ <!-- 
+ Model file Copyright Tapaninen 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ 
+ XML and Systems Copyright Muraleedharan 2014
+ Distributed under the terms of the GPL version 2 License for theOmegaHangar version
+ -->
+
+<PropertyList>
+	<path>fd_panel.ac</path>
+	
+	<!-- Animations -->
+	
+	<!-- Gear Level -->
+	<animation>
+		<type>rotate</type>
+		<object-name>lever.gear</object-name>
+		<property>/controls/gear/gear-down</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep>30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.8532</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.3624</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>lever.gear</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/gear/gear-down</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+
+	<!-- GEAR Situation Indicators -->
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ind.gear.0</object-name>
+		<property>/fdm/jsbsim/gear/unit/pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.01</ind><dep>0</dep></entry>
+			<entry><ind>0.011</ind><dep>0.25</dep></entry>
+			<entry><ind>0.95</ind><dep>0.25</dep></entry>
+			<entry><ind>0.951</ind><dep>0.50</dep></entry>
+			<entry><ind>0.999</ind><dep>0.50</dep></entry>
+			<entry><ind>1</ind><dep>0.75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ind.gear.1</object-name>
+		<property>/fdm/jsbsim/gear/unit[1]/pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.01</ind><dep>0</dep></entry>
+			<entry><ind>0.011</ind><dep>0.25</dep></entry>
+			<entry><ind>0.95</ind><dep>0.25</dep></entry>
+			<entry><ind>0.951</ind><dep>0.50</dep></entry>
+			<entry><ind>0.999</ind><dep>0.50</dep></entry>
+			<entry><ind>1</ind><dep>0.75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ind.gear.4</object-name>
+		<property>/fdm/jsbsim/gear/unit[2]/pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.01</ind><dep>0</dep></entry>
+			<entry><ind>0.011</ind><dep>0.25</dep></entry>
+			<entry><ind>0.95</ind><dep>0.25</dep></entry>
+			<entry><ind>0.951</ind><dep>0.50</dep></entry>
+			<entry><ind>0.999</ind><dep>0.50</dep></entry>
+			<entry><ind>1</ind><dep>0.75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ind.gear.2</object-name>
+		<property>/fdm/jsbsim/gear/unit[3]/pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.01</ind><dep>0</dep></entry>
+			<entry><ind>0.011</ind><dep>0.25</dep></entry>
+			<entry><ind>0.95</ind><dep>0.25</dep></entry>
+			<entry><ind>0.951</ind><dep>0.50</dep></entry>
+			<entry><ind>0.999</ind><dep>0.50</dep></entry>
+			<entry><ind>1</ind><dep>0.75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>ind.gear.3</object-name>
+		<property>/fdm/jsbsim/gear/unit[4]/pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.01</ind><dep>0</dep></entry>
+			<entry><ind>0.011</ind><dep>0.25</dep></entry>
+			<entry><ind>0.95</ind><dep>0.25</dep></entry>
+			<entry><ind>0.951</ind><dep>0.50</dep></entry>
+			<entry><ind>0.999</ind><dep>0.50</dep></entry>
+			<entry><ind>1</ind><dep>0.75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	
+	<!-- Autobrake system -->
+	<animation>
+		<type>rotate</type>
+		<object-name>knob.autobrk</object-name>
+		<property>/hydraulics/brakes/autobrake-setting</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-135</dep></entry>
+			<entry><ind>1</ind><dep>-90</dep></entry>
+			<entry><ind>2</ind><dep>-45</dep></entry>
+			<entry><ind>3</ind><dep>0</dep></entry>
+			<entry><ind>4</ind><dep>45</dep></entry>
+			<entry><ind>5</ind><dep>90</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>-0.8588</x1-m>
+			<y1-m>0.2234</y1-m>
+			<z1-m>-0.2858</z1-m>
+			<x2-m>-0.8614</x2-m>
+			<y2-m>0.2234</y2-m>
+			<z2-m>-0.2865</z2-m>
+		</axis>
+	</animation>
+	<animation>
+	   <type>pick</type>
+	  <object-name>knob.autobrk</object-name>
+	  <action>
+	    <button>0</button>
+	    <button>3</button>
+	    <repeatable>false</repeatable>
+	    <binding>
+		<command>property-adjust</command>
+		<property>/hydraulics/brakes/autobrake-setting</property>
+		<step>1</step>
+		<min>0</min>
+		<max>5</max>
+		<wrap>false</wrap>
+	    </binding>
+	    <binding>
+		  <command>property-toggle</command>
+		  <property>/sim/sound/switch</property>
+	      </binding>
+	  </action>
+	  <action>
+	      <button>1</button>
+	      <button>4</button>
+	      <repeatable>false</repeatable>
+	      <binding>
+		  <command>property-adjust</command>
+		  <property>/hydraulics/brakes/autobrake-setting</property>
+		  <step>-1</step>
+		  <min>0</min>
+		  <max>5</max>
+		  <wrap>false</wrap>
+	    </binding>
+	    <binding>
+		<command>property-toggle</command>
+		<property>/sim/sound/switch</property>
+	    </binding>
+	  </action>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>btn.autobrk</object-name>
+		<property>/hydraulics/brakes/autobrake-rto</property>
+		<factor>0.25</factor>
+		<axis>
+			<x>1</x>
+		</axis>
+		<condition>
+			<property>/systems/electric/outputs/avionics</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>btn.autobrk</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/hydraulics/brakes/autobrake-rto</property>
+			</binding>
+			<binding>
+                  <command>property-toggle</command>
+                  <property>/sim/sound/switch</property>
+            </binding>
+		</action>
+	</animation>
+	
+	<!-- Navigation Display and Vertical Situation Display -->
+	<animation>
+        <type>select</type>
+        <object-name>nd.l</object-name>
+        <object-name>vsd.l</object-name>
+        <object-name>nd.r</object-name>
+        <object-name>vsd.r</object-name>
+        <object-name>ewd</object-name>
+        <condition>
+            <equals>
+                <property>systems/electric/outputs/avionics</property>
+                <value>1</value>
+            </equals>
+        </condition>
+    </animation>
+    
+    <animation>
+		<type>pick</type>
+		<object-name>nd.l</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>nd.showNd();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>nd.r</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>nd.showNd("fo");</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vsd.l</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>nd.capt_vsd.showDlg();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>vsd.r</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>nd.fo_vsd.showDlg();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ewd</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>ecam.ewd.showDlg();</script>
+			</binding>
+		</action>
+	</animation>
+	
+</PropertyList>
