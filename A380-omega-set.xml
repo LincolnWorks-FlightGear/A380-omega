@@ -18,7 +18,7 @@
      2014	JTapaninen		new flightdeck model, fuselage edits
      2014	SToryx			XML edits, model edits
      2014   NMuraleehdharan	Most old systems removed, new FCS, new Electrical system, new fuel system
-     2020   Marsdolphin                 New ITAF AP
+     2020   Marsdolphin                 New ITAF AP, various updates
 
 -->
 
@@ -632,8 +632,7 @@
 			<td>0.001</td>
 		</pitch>
 		<cmd>
-			<hdg>1.6</hdg>
-			<vorloc>2.6</vorloc>
+			<roll>1.6</roll>
 			<alt-gain>-5</alt-gain>
 		</cmd>
 		<autoland> 
