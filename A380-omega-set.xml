@@ -105,6 +105,7 @@
 
    <model>
     <path>Aircraft/A380-omega/Models/A380.xml</path>
+    <fallback-model-index type="int">357</fallback-model-index>
     <livery> 
 		<file type="string">F-WWDD</file> 
     </livery> 
