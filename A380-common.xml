@@ -145,6 +145,58 @@
       </config>
     </view>
   <chase-distance-m>-100</chase-distance-m> <!-- -75 -->
+  <view n="102">
+    <name>Passenger Upper View</name>
+    <type>lookfrom</type>
+    <internal archive="y">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+      <default-field-of-view-deg type="double">97</default-field-of-view-deg>
+      <pitch-offset-deg>-20.55</pitch-offset-deg>
+      <heading-offset-deg type="double">307.68</heading-offset-deg> <!-- parallel to the panel -->
+      <x-offset-m archive="y"> 2.6223 </x-offset-m> <!-- Left/Right -->
+      <y-offset-m archive="y"> -0.10 </y-offset-m> <!-- Up/Down -->
+      <z-offset-m archive="y"> 0.8602 </z-offset-m> <!-- Fdw/Back -->
+    </config>
+  </view>
+  
+  <view n="103">
+    <name>Passenger Lower View</name>
+    <type>lookfrom</type>
+    <internal archive="y">true</internal>
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      <ground-level-nearplane-m type="double">0.01f</ground-level-nearplane-m>
+      <default-field-of-view-deg type="double">107</default-field-of-view-deg>
+      <pitch-offset-deg>-17.184</pitch-offset-deg>
+      <heading-offset-deg type="double">96.97</heading-offset-deg> <!-- parallel to the panel -->
+      <x-offset-m archive="y"> -3.205 </x-offset-m> <!-- Left/Right -->
+      <y-offset-m archive="y"> -2.60 </y-offset-m> <!-- Up/Down -->
+      <z-offset-m archive="y"> 13.701 </z-offset-m> <!-- Fdw/Back -->
+    </config>
+  </view>
+  <view n="104">
+    <name>Jump Seat</name>
+    <enabled type="bool">false</enabled>
+    <type>lookfrom</type>
+     <config>
+       <from-model type="bool">true</from-model>
+       <from-model-idx type="int">0</from-model-idx>
+       <x-offset-m type="double"> -0.0  </x-offset-m>
+       <y-offset-m type="double"> -1.5  </y-offset-m>
+       <z-offset-m type="double"> -18.5 </z-offset-m>
+       <pitch-offset-deg>-10.2</pitch-offset-deg>   
+       <default-field-of-view-deg type="double">75.0</default-field-of-view-deg>
+       <heading-offset-deg type="double">0.0</heading-offset-deg>
+     </config>
+     <dynamic>
+        <enabled type="bool">false</enabled>
+     </dynamic>
+  </view>
+  <chase-distance-m>-100</chase-distance-m> <!-- -75 -->
   
   <flaps>
 	  <setting>0.000</setting>  <!-- flaps up -->
