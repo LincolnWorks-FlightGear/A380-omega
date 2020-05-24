@@ -292,7 +292,7 @@
 					<menu n="3">
 						<item n="0">
 				            <label>Autopilot Dialog</label>
-				            <enabled type="bool">false</enabled>
+				            <enabled type="bool">true</enabled>
 						<binding>
               <command>nasal</command>
               <script>var ap_dialog = gui.Dialog.new("sim/gui/dialogs/ap_dialog/dialog", "Aircraft/A380-omega/Systems/autopilot-dlg.xml");
