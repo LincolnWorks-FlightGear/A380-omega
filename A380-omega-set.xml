@@ -557,14 +557,6 @@
 								<dialog-name>pushback</dialog-name>
 							</binding>
 						</item>
-						 <item>
-            <label>Autopilot Dialog</label>
-            <binding>
-              <command>nasal</command>
-              <script>var ap_dialog = gui.Dialog.new("sim/gui/dialogs/ap_dialog/dialog", "Aircraft/A380-omega/Systems/autopilot-dlg.xml");
-							 ap_dialog.open();</script>
-            </binding>
-          </item>
 
 					</menu>
 					<menu n="101">
