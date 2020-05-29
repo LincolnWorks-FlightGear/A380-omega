@@ -342,17 +342,7 @@
 		<menubar>
 				<default>
 					<menu n="3">
-						<item n="0">
-				            <label>Autopilot Dialog</label>
-				            <enabled type="bool">true</enabled>
-						<binding>
-              <command>nasal</command>
-              <script>var ap_dialog = gui.Dialog.new("sim/gui/dialogs/ap_dialog/dialog", "Aircraft/A380-omega/Systems/autopilot-dlg.xml");
-							 ap_dialog.open();</script>
-            </binding>
-
-		                    
-		                </item>
+			
 		          
 					</menu>
 					<menu n="100">
@@ -374,15 +364,7 @@
 								<dialog-name>pushback</dialog-name>
 							</binding>
 						</item>
-						 <item>
-            <label>Autopilot Dialog</label>
-            <binding>
-              <command>nasal</command>
-              <script>var ap_dialog = gui.Dialog.new("sim/gui/dialogs/ap_dialog/dialog", "Aircraft/A380-omega/Systems/autopilot-dlg.xml");
-							 ap_dialog.open();</script>
-            </binding>
-          </item>
-
+	
 					</menu>
 					<menu n="101">
 						<label>Displays</label>
