@@ -218,7 +218,7 @@
   </view>
   <view n="104">
     <name>Jump Seat</name>
-    <enabled type="bool">false</enabled>
+    <enabled type="bool">true</enabled>
     <type>lookfrom</type>
      <config>
        <from-model type="bool">true</from-model>
